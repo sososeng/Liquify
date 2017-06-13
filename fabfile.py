@@ -15,11 +15,12 @@ def stop ():
 
 def deploy ():
   with cd(DIR):
-    run('git pull')
+    with shell_env(PATH='/home/sososeng/.nvm/versions/node/v6.10.3/bin:$PATH'):
+        run('git pull')
 
-    run('npm install  > install.log')
+        run('npm install  > install.log')
 
-    run('pm2 restart all > restart.log')
+        run('pm2 restart all > restart.log')
 
 def hello ():
   print("Hello")
