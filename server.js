@@ -1,7 +1,6 @@
 var express = require('express');
 var app = express();
 var redis = require("redis");
-var port = process.env.PORT || 8080;
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 var morgan = require('morgan');
@@ -210,7 +209,7 @@ function isLoggedIn(req, res, next) {
 
 
 
-server.listen(8000);
+
 
 io.use(passportSocketIo.authorize({
     passport:     passport,
@@ -248,5 +247,5 @@ io.sockets.on('connection', function(socket) {
 
 
 
-app.listen(port);
+server.listen(8000);
 console.log('The magic happens on port ' + port);
