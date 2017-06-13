@@ -248,4 +248,4 @@ io.sockets.on('connection', function(socket) {
 
 
 server.listen(8000);
-console.log('The magic happens on port ' + port);
+console.log('The magic happens on port 8000');
