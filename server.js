@@ -150,7 +150,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-app.use('/static', express.static('public'));
+app.use(express.static('public'));
 
 app.get('/', function(req, res) {
       res.render('index.ejs'); // load the index.ejs file
