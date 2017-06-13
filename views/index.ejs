@@ -13,6 +13,11 @@
           enable: true /* Set to false to hide */
         }
       }]);
+
+      OneSignal.idsAvailable((idsAvailable) => {
+        console.log(idsAvailable.playerId);
+        console.log(idsAvailable.pushToken);
+      });
     </script>
   </head>
   <body>
