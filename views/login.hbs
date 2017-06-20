@@ -1,23 +1,28 @@
-    <!-- THIRST KEEPER LOGO -->
+<!-- THIRST KEEPER LOGO -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+      <div class="text-center">
 
-    <img src="images/thirst-keeper.png" class="img-fluid" alt="Responsive image">
+  <img id="logo" src="images/blue_logo.png" class="img-fluid" alt="Responsive image">
+  <h1>Liquify</h1>
 
 
-    {{#if message.length}}
-      {{message}}
-    {{/if}}
-
-
-    <!-- LOGIN FORM -->
-    <form action="/login" method="post">
-        <div>
-            <label>Email</label>
-            <input type="text"  name="email">
+  <!-- LOGIN FORM -->
+  <form action="/login" method="post">
+    <div>
+      <label>Email</label>
+      <br />
+      <input type="text"  name="email">
+    </div>
+    <div>
+      <label>Password</label>
+      <br />
+      <input type="password" name="password">
+    </div>
+    <button type="submit">Login</button>
+  </form>
         </div>
-        <div>
-            <label>Password</label>
-            <input type="password" name="password">
-        </div>
-
-        <button type="submit">Login</button>
-    </form>
+    </div>
+  </div>
+</div>
