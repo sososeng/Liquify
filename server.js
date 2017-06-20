@@ -168,6 +168,10 @@ app.get('/', function(req, res) {
       res.render('index.hbs'); // load the index.ejs file
 });
 
+app.get('/status',function(req, res){
+      res.render('status.hbs')
+});
+
 app.get('/login', function(req, res) {
 
     // render the page and pass in any flash data if it exists
