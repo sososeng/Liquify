@@ -1,6 +1,9 @@
-    <% if (message.length > 0) { %>
-        <div><%= message %></div>
-    <% } %>
+
+
+    {{#if message.length}}
+      {{message}}
+    {{/if}}
+
 
     <!-- LOGIN FORM -->
     <form action="/login" method="post">

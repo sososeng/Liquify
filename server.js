@@ -13,8 +13,8 @@ var client  = redis.createClient();
 var flash = require('connect-flash');
 var LocalStrategy   = require('passport-local').Strategy;
 var server = require('http').Server(app);
-var io = require('socket.io')(server);
-var passportSocketIo = require('passport.socketio');
+
+
 
 
 mongoose.connect('mongodb://localhost/user_auth');
@@ -138,7 +138,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());
 
-app.set('view engine','ejs');
+app.set('view engine', 'hbs');
 
 app.use(session({
     secret: 'ssshhhhh',
@@ -153,19 +153,19 @@ app.use(flash());
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-      res.render('index.ejs'); // load the index.ejs file
+      res.render('index.hbs'); // load the index.ejs file
 });
 
 app.get('/login', function(req, res) {
 
     // render the page and pass in any flash data if it exists
-    res.render('login.ejs', { message: req.flash('loginMessage') });
+    res.render('login.hbs', { message: req.flash('loginMessage') });
 });
 
 app.get('/signup', function(req, res) {
 
     // render the page and pass in any flash data if it exists
-    res.render('signup.ejs', { message: req.flash('signupMessage') });
+    res.render('signup.hbs', { message: req.flash('signupMessage') });
 });
 
 app.post('/login', passport.authenticate('local-login', {
@@ -181,7 +181,7 @@ app.post('/signup', passport.authenticate('local-signup', {
 }));
 
 app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile.ejs', {
+    res.render('profile.hbs', {
         user : req.user // get the user out of session and pass to template
     });
 });
@@ -206,43 +206,6 @@ function isLoggedIn(req, res, next) {
     // if they aren't redirect them to the home page
     res.redirect('/');
 }
-
-
-
-
-
-io.use(passportSocketIo.authorize({
-    passport:     passport,
-    cookieParser: cookieParser,
-    key:          'connect.sid',
-    secret:       'ssshhhhh',
-    store:        sessionStore,
-    success:      onAuthorizeSuccess,
-    fail:         onAuthorizeFail
-}));
-
-function onAuthorizeSuccess(data, accept){
-  console.log('successful connection to socket.io');
-  accept();
-}
-
-function onAuthorizeFail(data, message, error, accept){
-  console.log('failed connection to socket.io:');
-  if(error)
-    accept(new Error(message));
-}
-
-io.sockets.on('connection', function(socket) {
-    var date = new Date();
-    var time = date.getHours() + ":" + date.getMinutes();
-    socket.emit('message', {username: 'Server', message: 'welcome to the chat'});
-    socket.on('send', function(data) {
-        io.sockets.emit('message', data);
-    });
-});
-
-
-
 
 
 
