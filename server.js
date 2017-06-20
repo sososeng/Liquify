@@ -13,11 +13,11 @@ var client  = redis.createClient();
 var flash = require('connect-flash');
 var LocalStrategy   = require('passport-local').Strategy;
 var server = require('http').Server(app);
+var Schema = mongoose.Schema;
+var ObjectId = mongoose.Types.ObjectId;
 
 
-
-
-mongoose.connect('mongodb://localhost/user_auth');
+mongoose.connect('mongodb://localhost/Thirst_Keeper');
 
 passport.serializeUser(function(user, done) {
     done(null, user.id);
@@ -61,6 +61,7 @@ function(req, email, password, done) {
             var newUser            = new User();
 
             // set the user's local credentials
+            newUser.local._id = new ObjectId();
             newUser.local.email    = email;
             newUser.local.password = newUser.generateHash(password);
 
@@ -111,11 +112,20 @@ passport.use('local-login', new LocalStrategy({
 
 var userSchema = mongoose.Schema({
 
-    local            : {
+        local        : {
+        _id          : Schema.ObjectId,
         email        : String,
         password     : String,
+
     }
 
+});
+
+var dataSchema = mongoose.Schema({
+    _creator : { type: Schema.ObjectId, ref: 'User' },
+    _id      : Schema.ObjectId,
+    date     : String,
+    value    : Number
 });
 
 // methods ======================
@@ -131,6 +141,7 @@ userSchema.methods.validPassword = function(password) {
 
 
 var User = mongoose.model('User',userSchema);
+var Data = mongoose.model('Data',dataSchema);
 
 sessionStore = new redisStore({ host: 'localhost', port: 6379, client: client,ttl :  260});
 
@@ -147,6 +158,7 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -169,21 +181,54 @@ app.get('/signup', function(req, res) {
 });
 
 app.post('/login', passport.authenticate('local-login', {
-    successRedirect : '/profile', // redirect to the secure profile section
+    successRedirect : '/today', // redirect to the secure profile section
     failureRedirect : '/login', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));
 
 app.post('/signup', passport.authenticate('local-signup', {
-    successRedirect : '/profile', // redirect to the secure profile section
+    successRedirect : '/today', // redirect to the secure profile section
     failureRedirect : '/signup', // redirect back to the signup page if there is an error
     failureFlash : true // allow flash messages
 }));
 
-app.get('/profile', isLoggedIn, function(req, res) {
-    res.render('profile.hbs', {
-        user : req.user // get the user out of session and pass to template
+app.get('/today', isLoggedIn, function(req, res) {
+    console.log(req.user.local._id);
+
+    Data.findOne({ '_creator' :  req.user.local._id }, function(err, data) {
+        // if there are any errors, return the error before anything else
+        if (err)
+            return done(err);
+
+        // if no data is found, return the message
+        if (!data){
+          var newData = new Data();
+
+          // set the user's local credentials
+          newData._creator = req.user.local._id;
+          newData._id    = new ObjectId();
+          newData.date  = getDateTime();
+          newData.value = 0;
+
+          // save the data
+          newData.save(function(err) {
+              if (err)
+                  throw err;
+              console.log("created new data");
+
+          });
+          res.render('today.hbs', {
+              data : newData // get the user out of session and pass to template
+          });
+        }else{
+          res.render('today.hbs', {
+              data : data // get the user out of session and pass to template
+          });
+        }
     });
+
+
+
 });
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err){
@@ -205,6 +250,24 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/');
+}
+
+
+function getDateTime() {
+
+    var date = new Date();
+
+
+    var year = date.getFullYear();
+
+    var month = date.getMonth() + 1;
+    month = (month < 10 ? "0" : "") + month;
+
+    var day  = date.getDate();
+    day = (day < 10 ? "0" : "") + day;
+
+    return year + ":" + month + ":" + day ;
+
 }
 
 
