@@ -168,6 +168,10 @@ app.get('/', function(req, res) {
       res.render('index.hbs'); // load the index.ejs file
 });
 
+app.get('/status',function(req, res){
+      res.render('status.hbs')
+});
+
 app.get('/login', function(req, res) {
 
     // render the page and pass in any flash data if it exists
@@ -193,9 +197,8 @@ app.post('/signup', passport.authenticate('local-signup', {
 }));
 
 app.get('/today', isLoggedIn, function(req, res) {
-    console.log(req.user.local._id);
 
-    Data.findOne({ '_creator' :  req.user.local._id }, function(err, data) {
+    Data.findOne({ '_creator' :  req.user.local._id, 'date' : getDateTime() }, function(err, data) {
         // if there are any errors, return the error before anything else
         if (err)
             return done(err);
@@ -226,10 +229,28 @@ app.get('/today', isLoggedIn, function(req, res) {
           });
         }
     });
+  });
+  app.put('/api/drinkup', isLoggedIn , function(req, res) {
+      var todaydate = getDateTime();
+      Data.findOneAndUpdate({ '_creator' :  req.user.local._id, 'date': todaydate},{$inc:{value:1}}, {new:true}, function(err, data) {
+          // if there are any errors, return the error before anything else
+          if (err)
+              return done(err);
 
-
+          // if no data is found, return the message
+          if (!data){
+            res.status(404).send("Sorry can't find that!");
+          }else{
+            res.json({value:data.value});
+            console.log(data.value);
+          }
+      });
+        // render the page and pass in any flash data if it exists
 
 });
+
+
+
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err){
          if(err){
