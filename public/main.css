@@ -1,6 +1,10 @@
 /* Insert CSS Here */
 
+body {
+  background-color: #ECECEC;
+}
 
+    /*NAVAGATION*/
 .sidenav {
   display: none;
   height: 100%;
@@ -39,4 +43,10 @@
 .sidenav a {font-size: 18px;}
 }
 
-/*WATER LOG HEADER*/
+/*LOGIN LOGO*/
+#logo {
+height: auto;
+width: 250px;
+}
+
+/*LOGIN FORM*/
