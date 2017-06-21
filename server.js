@@ -256,7 +256,7 @@ app.get('/logout', function(req, res) {
          if(err){
              console.log(err);
          } else {
-             res.redirect('/');
+             res.redirect('/login');
          }
      });
 });
@@ -270,7 +270,7 @@ function isLoggedIn(req, res, next) {
         return next();
 
     // if they aren't redirect them to the home page
-    res.redirect('/');
+    res.redirect('/login');
 }
 
 

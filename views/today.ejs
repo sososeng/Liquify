@@ -1,56 +1,82 @@
-<div id="page-top" data-spy="scroll" data-target=".navbar">
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-            <i class="fa fa-bars"></i>
-          </button>
-          <p class="brand">Liquify
-          <i class="fa fa-tint" aria-hidden="true"></i></p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include templates/head.ejs%>
+</head>
+  <body>
+  <% include templates/header.ejs%>
+    <div id="today">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center"> Log Your Water </h1>
+            <div class="text-center">
+              <div>
+                <img id="logo" src="images/water-drop.png" alt="water-drop"/>
+              </div>
+              <span class="glyphicon glyphicon-plus plus-button"></span>
+              <p>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="navbar-collapse" class="collapse navbar-collapse navbar-main-collapse">
-          <ul class="nav navbar-nav navbar-right text-right">
-            <li class="hidden"><a href="#page-top"></a></li>
-            <li class="active"><a href="/login">Login</a></li>
-            <li><a href="/today">Today</a></li>
-            <li><a href="/calender">Calender</a></li>
-            <li><a href="/logout">Logout</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
+                <% if(data.value >0){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup1" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup1"></i>
+                <% } %>
 
-      </div><!-- /.container-fluid -->
-    </nav>
-  <div id="today">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          {{data.value}}
-          {{data.date}}
-          <h1 class="text-center"> Log Your Water </h1>
-          <div class="text-center">
-            <img src="images/water-drop.png" alt="water-drop"/>
-            <span class="glyphicon glyphicon-plus plus-button"></span>
-            <p>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup1"></i>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup2"></i>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup3"></i>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup4"></i>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup5"></i>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup6"></i>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup7"></i>
-              <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup8"></i>
-            </p>
-            {{#if}}
-              {{../permalink}}
-            {{/if}}
+                <% if(data.value >1){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup2" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup2"></i>
+                <% } %>
 
+                <% if(data.value >2){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup3" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup3"></i>
+                <% } %>
 
+                <% if(data.value >3){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup4" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup4"></i>
+                <% } %>
+
+                <% if(data.value >4){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup5" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup5"></i>
+                <% } %>
+
+                <% if(data.value >5){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup6" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup6"></i>
+                <% } %>
+
+                <% if(data.value >6){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup7" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup7"></i>
+                <% } %>
+
+                <% if(data.value >7){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup8" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup8"></i>
+                <% } %>
+
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    <% include templates/footer.ejs%>
+    <script>
+      var image = document.getElementById("logo");
+        image.onload = function () {
+        Loadgo.init(this);
+      };
+    </script>
+  </body>
+</html>
