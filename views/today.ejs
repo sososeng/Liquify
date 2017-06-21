@@ -1,27 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include templates/head.ejs%>
+</head>
+  <body>
+  <% include templates/header.ejs%>
+    <div id="today">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <h1 class="text-center"> Log Your Water </h1>
+            <div class="text-center">
+              <div>
+                <img id="logo" src="images/water-drop.png" alt="water-drop"/>
+              </div>
+              <span class="glyphicon glyphicon-plus plus-button"></span>
+              <p>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+                <% if(data.value >0){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup1" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup1"></i>
+                <% } %>
 
-              {{data.value}}
-      <h1 class="text-center"> Log Your Water </h1>
-      <div class="text-center">
+                <% if(data.value >1){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup2" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup2"></i>
+                <% } %>
 
-        <img src="images/water-drop.png" alt="water-drop" /> <a href="#"><span class="glyphicon glyphicon-plus" ></span>
+                <% if(data.value >2){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup3" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup3"></i>
+                <% } %>
 
-        <p> <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-            <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-            <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-            <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-            <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-            <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-            <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-            <i class="fa fa-tint fa-5x"  style="color:grey" aria-hidden="true"></i></p>
-        {{data.date}}
+                <% if(data.value >3){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup4" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup4"></i>
+                <% } %>
+
+                <% if(data.value >4){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup5" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup5"></i>
+                <% } %>
+
+                <% if(data.value >5){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup6" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup6"></i>
+                <% } %>
+
+                <% if(data.value >6){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup7" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup7"></i>
+                <% } %>
+
+                <% if(data.value >7){ %>
+                  <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup8" style="color:blue"></i>
+                <% } else{ %>
+                   <i class="fa fa-tint fa-5x" aria-hidden="true" id="cup8"></i>
+                <% } %>
+
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-<div>
-
-
-</a>
+    <% include templates/footer.ejs%>
+    <script>
+      var image = document.getElementById("logo");
+        image.onload = function () {
+        Loadgo.init(this);
+      };
+    </script>
+  </body>
+</html>
