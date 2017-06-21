@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="main.css">
-    <script src="https://use.fontawesome.com/7be5d1241c.js"></script>
-  </head>
+<html lang="en">
+<head>
+    <% include templates/head.ejs%>
+</head>
   <body>
-    <h1>{{title}}</h1>
-    {{{body}}}
+    <% include templates/header.ejs%>
+    <!-- Insert Body here -->
+    <div class="container">
+      <div class="starter-template">
+        <%- body %>
+      </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    </div><!-- /.container -->
+    <% include templates/footer.ejs%>
   </body>
 </html>
