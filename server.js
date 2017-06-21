@@ -250,13 +250,20 @@ app.get('/today', isLoggedIn, function(req, res) {
 });
 
 
+app.get('/calendar', function(req, res) {
+
+    // render the page and pass in any flash data if it exists
+    res.render('login.ejs', { message: req.flash('loginMessage') });
+});
+
+
 
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err){
          if(err){
              console.log(err);
          } else {
-             res.redirect('/');
+             res.redirect('/login');
          }
      });
 });
@@ -287,7 +294,7 @@ function getDateTime() {
     var day  = date.getDate();
     day = (day < 10 ? "0" : "") + day;
 
-    return year + ":" + month + ":" + day ;
+    return year + "-" + month + "-" + day ;
 
 }
 
