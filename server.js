@@ -11,11 +11,12 @@ var session = require('express-session');
 var redisStore = require('connect-redis')(session);
 var client  = redis.createClient();
 var flash = require('connect-flash');
+var moment=require('moment');
 var LocalStrategy   = require('passport-local').Strategy;
 var server = require('http').Server(app);
 var Schema = mongoose.Schema;
 var ObjectId = mongoose.Types.ObjectId;
-
+var db = mongoose.connection;
 
 mongoose.connect('mongodb://localhost/Thirst_Keeper');
 
@@ -165,12 +166,10 @@ app.use(flash());
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-      res.render('index.ejs'); // load the index.ejs file
+      res.render('login.ejs'); // load the index.ejs file
 });
 
-app.get('/status',function(req, res){
-      res.render('status.ejs')
-});
+
 
 app.get('/login', function(req, res) {
 
@@ -249,14 +248,44 @@ app.get('/today', isLoggedIn, function(req, res) {
 
 });
 
+app.get('/status', isLoggedIn ,function(req, res){
 
-app.get('/calendar', function(req, res) {
+    var reData={};
+    var myq;
+    for(let i = 0;i<7 ;i++){
+      let nowDate  = moment().subtract(i,'days').format("YYYY-MM-DD");
 
-    // render the page and pass in any flash data if it exists
-    res.render('login.ejs', { message: req.flash('loginMessage') });
+      myq = Data.findOne({ '_creator' :  req.user.local._id, 'date': nowDate}, function(err, data) {
+          // if there are any errors, return the error before anything else
+          if (err)
+              return done(err);
+
+          // if no data is found, return the message
+          if (!data){
+            let theDate =moment(nowDate).format("DD-MM-YYYY");
+            reData[theDate]="NA";
+          }else{
+
+            let theDate =moment(nowDate).format("DD-MM-YYYY");
+            reData[theDate]=data.value;
+            console.log(reData);
+          }
+      })
+
+
+
+    }
+
+    myq.then(function(){
+
+
+        res.render('status.ejs', {message:JSON.stringify(reData)});
+
+    });
+
+
+
 });
-
-
 
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err){
