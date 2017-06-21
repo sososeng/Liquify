@@ -149,7 +149,7 @@ app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser());
 
-app.set('view engine', 'hbs');
+app.set('view engine', 'ejs');
 
 app.use(session({
     secret: 'ssshhhhh',
@@ -165,23 +165,23 @@ app.use(flash());
 app.use(express.static('public'));
 
 app.get('/', function(req, res) {
-      res.render('index.hbs'); // load the index.ejs file
+      res.render('index.ejs'); // load the index.ejs file
 });
 
 app.get('/status',function(req, res){
-      res.render('status.hbs')
+      res.render('status.ejs')
 });
 
 app.get('/login', function(req, res) {
 
     // render the page and pass in any flash data if it exists
-    res.render('login.hbs', { message: req.flash('loginMessage') });
+    res.render('login.ejs', { message: req.flash('loginMessage') });
 });
 
 app.get('/signup', function(req, res) {
 
     // render the page and pass in any flash data if it exists
-    res.render('signup.hbs', { message: req.flash('signupMessage') });
+    res.render('signup.ejs', { message: req.flash('signupMessage') });
 });
 
 app.post('/login', passport.authenticate('local-login', {
@@ -220,11 +220,11 @@ app.get('/today', isLoggedIn, function(req, res) {
               console.log("created new data");
 
           });
-          res.render('today.hbs', {
+          res.render('today.ejs', {
               data : newData // get the user out of session and pass to template
           });
         }else{
-          res.render('today.hbs', {
+          res.render('today.ejs', {
               data : data // get the user out of session and pass to template
           });
         }
