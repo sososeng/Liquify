@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-
     $('.plus-button').click(function(){
       var api_url = '/api/drinkup';
         axios.put(api_url)
