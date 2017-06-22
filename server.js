@@ -291,11 +291,11 @@ app.get('/status', isLoggedIn ,function(req, res){
           // if no data is found, return the message
           if (!data){
             let theDate =moment(nowDate).format("MM-DD-YYYY");
-            reData[theDate]="No Data";
+            reData[i]= [theDate,7];
           }else{
 
             let theDate =moment(nowDate).format("MM-DD-YYYY");
-            reData[theDate]=data.value;
+            reData[i]= [theDate, data.value];
             console.log(reData);
           }
       })
@@ -304,8 +304,8 @@ app.get('/status', isLoggedIn ,function(req, res){
 
     myq.then(function(){
 
-
-        res.render('status.ejs', {message:JSON.stringify(reData)});
+        console.log(reData);
+        res.render('status.ejs', {data:JSON.stringify(reData)});
 
     });
 
