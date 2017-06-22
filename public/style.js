@@ -1,4 +1,23 @@
 $( document ).ready(function() {
+<<<<<<< HEAD
+=======
+
+  (function(){
+    var offset = moment().utcOffset();
+    var api_url = '/api/synctime:'+offset;
+      axios.put(api_url)
+        .then(function (response) {
+          console.log(response.data);
+
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    })();
+
+
+
+>>>>>>> master
     $('.plus-button').click(function(){
       var api_url = '/api/drinkup';
         axios.put(api_url)
