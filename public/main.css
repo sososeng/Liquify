@@ -1,21 +1,29 @@
 /* Insert CSS Here */
 
 body {
-  background-color: #ECECEC;
+  background-color: #2196F3;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background: url("images/water.jpeg")no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color:white;
 }
 .navbar-custom{
   height: 50px;
   color: white;
-  background-color: black;
+  background-color: white;
 }
 .brand{
-  color: white;
+  color: #2196F3;
   margin-top: 8px;
   margin-left: 10px;
   font-size: 25px;
 }
 a{
-  color:white;
+  color:#2196F3;
   font-size:20px;
   margin-right: 10px;
 }

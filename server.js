@@ -290,11 +290,11 @@ app.get('/status', isLoggedIn ,function(req, res){
 
           // if no data is found, return the message
           if (!data){
-            let theDate =moment(nowDate).format("DD-MM-YYYY");
-            reData[theDate]="NA";
+            let theDate =moment(nowDate).format("MM-DD-YYYY");
+            reData[theDate]="No Data";
           }else{
 
-            let theDate =moment(nowDate).format("DD-MM-YYYY");
+            let theDate =moment(nowDate).format("MM-DD-YYYY");
             reData[theDate]=data.value;
             console.log(reData);
           }

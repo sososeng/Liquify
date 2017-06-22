@@ -1,6 +1,17 @@
-<html>
-  <head><title>status</title></head>
-  <body>
-    <%= message %>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>status</title>
+    <% include templates/head.ejs%>
+  </head>
+    <body>
+    <% include templates/header.ejs%>
+
+    <div class="container row" id="today">
+      <div class="col-md-8 col-md-offset-2">
+        <%= message %>
+      </div>
+    </div>
+    <% include templates/footer.ejs%>
+    </body>
 </html>
