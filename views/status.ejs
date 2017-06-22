@@ -1,23 +1,17 @@
-<p>
-  <div class="container">
-    <div class="row">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>status</title>
+    <% include templates/head.ejs%>
+  </head>
+    <body>
+    <% include templates/header.ejs%>
+
+    <div class="container row" id="today">
       <div class="col-md-8 col-md-offset-2">
-        {{data.value}}
-        {{data.date}}
-        <h1 class="text-center"> this is some text</h1>
-        <div class="text-center">
-
-          <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-          <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-          <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-          <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-          <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-          <i class="fa fa-tint fa-5x" aria-hidden="true"></i>
-          <i class="fa fa-tint fa-5x" aria-hidden="true" style="color:red"></i> <br>
-          <p>M T W TH F S S</p>
-
-        </div>
+        <%= message %>
       </div>
     </div>
-  <div>
-</p>
+    <% include templates/footer.ejs%>
+    </body>
+</html>

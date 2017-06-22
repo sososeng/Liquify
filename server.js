@@ -11,11 +11,12 @@ var session = require('express-session');
 var redisStore = require('connect-redis')(session);
 var client  = redis.createClient();
 var flash = require('connect-flash');
+var moment=require('moment');
 var LocalStrategy   = require('passport-local').Strategy;
 var server = require('http').Server(app);
 var Schema = mongoose.Schema;
 var ObjectId = mongoose.Types.ObjectId;
-
+var db = mongoose.connection;
 
 mongoose.connect('mongodb://localhost/Thirst_Keeper');
 
@@ -116,6 +117,7 @@ var userSchema = mongoose.Schema({
         _id          : Schema.ObjectId,
         email        : String,
         password     : String,
+        timeoffset    :{ type: String, default: moment().utcOffset()}
 
     }
 
@@ -166,12 +168,10 @@ app.use(express.static('public'));
 app.use(express.static('node_modules/progressbar.js/dist'));
 
 app.get('/', function(req, res) {
-      res.render('index.ejs'); // load the index.ejs file
+      res.render('login.ejs'); // load the index.ejs file
 });
 
-app.get('/status',function(req, res){
-      res.render('status.ejs')
-});
+
 
 app.get('/login', function(req, res) {
 
@@ -198,8 +198,8 @@ app.post('/signup', passport.authenticate('local-signup', {
 }));
 
 app.get('/today', isLoggedIn, function(req, res) {
-
-    Data.findOne({ '_creator' :  req.user.local._id, 'date' : getDateTime() }, function(err, data) {
+    var today = moment().utcOffset(req.user.local.timeoffset).format("YYYY-MM-DD");
+    Data.findOne({ '_creator' :  req.user.local._id, 'date' : today }, function(err, data) {
         // if there are any errors, return the error before anything else
         if (err)
             return done(err);
@@ -211,7 +211,7 @@ app.get('/today', isLoggedIn, function(req, res) {
           // set the user's local credentials
           newData._creator = req.user.local._id;
           newData._id    = new ObjectId();
-          newData.date  = getDateTime();
+          newData.date  = today;
           newData.value = 0;
 
           // save the data
@@ -232,15 +232,16 @@ app.get('/today', isLoggedIn, function(req, res) {
     });
   });
   app.put('/api/drinkup', isLoggedIn , function(req, res) {
-      var todaydate = getDateTime();
-      Data.findOneAndUpdate({ '_creator' :  req.user.local._id, 'date': todaydate},{$inc:{value:1}}, {new:true}, function(err, data) {
+      var today = moment().utcOffset(req.user.local.timeoffset).format("YYYY-MM-DD");
+      console.log(today);
+      Data.findOneAndUpdate({ '_creator' :  req.user.local._id, 'date': today},{$inc:{value:1}}, {new:true}, function(err, data) {
           // if there are any errors, return the error before anything else
           if (err)
               return done(err);
 
           // if no data is found, return the message
           if (!data){
-            res.status(404).send("Sorry can't find that!");
+            res.status(400).send("Sorry can't find that!");
           }else{
             res.json({value:data.value});
             console.log(data.value);
@@ -251,13 +252,67 @@ app.get('/today', isLoggedIn, function(req, res) {
 });
 
 
-app.get('/calendar', function(req, res) {
+app.put('/api/synctime:offset', isLoggedIn , function(req, res) {
 
-    // render the page and pass in any flash data if it exists
-    res.render('login.ejs', { message: req.flash('loginMessage') });
+    var theoffset = req.params.offset;
+    User.findOneAndUpdate({ 'local._id' :  req.user.local._id},{$set:{timeoffset:theoffset}}, {new: true}, function(err, data) {
+        // if there are any errors, return the error before anything else
+        if (err)
+            return done(err);
+
+        // if no data is found, return the message
+        if (!data){
+          res.status(400).send("Sorry can't find that!");
+        }else{
+          console.log(theoffset);
+          res.status(200).send("thanks!");
+        }
+    });
+      // render the page and pass in any flash data if it exists
+
 });
 
 
+
+
+app.get('/status', isLoggedIn ,function(req, res){
+
+    var reData={};
+    var myq;
+    let today = moment().utcOffset(req.user.local.timeoffset).format("YYYY-MM-DD");
+    for(let i = 0;i<7 ;i++){
+
+      let nowDate  = moment(today).subtract(i,'days').format("YYYY-MM-DD");
+
+      myq = Data.findOne({ '_creator' :  req.user.local._id, 'date': nowDate}, function(err, data) {
+          // if there are any errors, return the error before anything else
+          if (err)
+              return done(err);
+
+          // if no data is found, return the message
+          if (!data){
+            let theDate =moment(nowDate).format("MM-DD-YYYY");
+            reData[theDate]="No Data";
+          }else{
+
+            let theDate =moment(nowDate).format("MM-DD-YYYY");
+            reData[theDate]=data.value;
+            console.log(reData);
+          }
+      })
+
+    }
+
+    myq.then(function(){
+
+
+        res.render('status.ejs', {message:JSON.stringify(reData)});
+
+    });
+
+
+
+});
 
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err){
@@ -279,24 +334,6 @@ function isLoggedIn(req, res, next) {
 
     // if they aren't redirect them to the home page
     res.redirect('/login');
-}
-
-
-function getDateTime() {
-
-    var date = new Date();
-
-
-    var year = date.getFullYear();
-
-    var month = date.getMonth() + 1;
-    month = (month < 10 ? "0" : "") + month;
-
-    var day  = date.getDate();
-    day = (day < 10 ? "0" : "") + day;
-
-    return year + "-" + month + "-" + day ;
-
 }
 
 

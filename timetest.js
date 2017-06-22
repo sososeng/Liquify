@@ -11,8 +11,11 @@ var moment = require('moment');
 var now = moment().format("YYYY-MM-DD");
 var then = moment(now).subtract(1,'days').format("YYYY-MM-DD");
 
+var offset = moment().utcOffset();
+console.log(offset);
 
-
+var testoffset = moment().utcOffset("+07:00");
+console.log(testoffset);
 var userSchema = mongoose.Schema({
 
         local        : {
@@ -35,9 +38,9 @@ var User = mongoose.model('User',userSchema);
 var Data = mongoose.model('Data',dataSchema);
 
 
+db.close();
 
-
-for(let i = 0; i<10;i++){
+/*for(let i = 0; i<10;i++){
       var newData = new Data();
       newData._creator = ObjectId("594abe1d3b41fd10ea2f1b73");
       newData._id    = new ObjectId();
@@ -52,4 +55,4 @@ for(let i = 0; i<10;i++){
           db.close();
 
       });
-}
+}*/

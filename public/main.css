@@ -1,13 +1,18 @@
 /* Insert CSS Here */
 
 body {
+<<<<<<< HEAD
   background-color: #35353f;
   font-family: 'Oswald', sans-serif;
+=======
+>>>>>>> master
 
+  background-color: #35353f;
 }
 .navbar-custom{
   height: 50px;
   color: white;
+
   background-color: transparent;
   /*border-bottom-color: #5eaaaf;*/
 
@@ -15,12 +20,16 @@ body {
 
 label, h1{
   color : white;
+<<<<<<< HEAD
   text-transform: uppercase;
   letter-spacing: .3em;
 }
 
 h1 {
   line-height: 150%;
+=======
+
+>>>>>>> master
 }
 
 input {
@@ -28,7 +37,7 @@ input {
 }
 
 .brand{
-  color: white;
+  color: #2196F3;
   margin-top: 8px;
   margin-left: 10px;
   font-size: 25px;
@@ -36,7 +45,7 @@ input {
 
 }
 a{
-  color:white;
+  color:#2196F3;
   font-size:20px;
   margin-right: 10px;
     text-transform: uppercase;
@@ -45,6 +54,7 @@ a{
 #today{
   margin-top: 5em;
 }
+
 
 #logo{
   max-width: 15em;
