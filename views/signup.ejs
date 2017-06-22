@@ -1,26 +1,36 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="text-center">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include templates/head.ejs%>
+</head>
+  <body>
 
-        <img id="logo" src="images/blue_logo.png" class="img-fluid" alt="Responsive image">
-        <h1>Liquify</h1>
+    <div class="container" id="today">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="text-center">
 
-        <form action="/signup" method="post">
-          <div >
-              <label>Email</label>
-              <br />
-              <input type="text" name="email">
+            <img id="logo" src="images/blue_logo.png" class="img-fluid" alt="Responsive image">
+            <h1>Liquify</h1>
+
+            <form action="/signup" method="post">
+              <div >
+                  <label>Email</label>
+                  <br />
+                  <input type="text" name="email">
+              </div>
+              <div >
+                  <label>Password</label>
+                  <br />
+                  <input type="password" name="password">
+              </div>
+
+              <button class="btn btn-secondary" type="submit" >Signup</button>
+            </form>
           </div>
-          <div >
-              <label>Password</label>
-              <br />
-              <input type="password" name="password">
-          </div>
-
-          <button type="submit" >Signup</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+    <% include templates/footer.ejs%>
+  </body>
+</html>

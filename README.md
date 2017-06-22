@@ -18,10 +18,10 @@ Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liq
 * Track how many 8 oz. glasses of water user drinks per day
 * User can see history of drinks per week
 
-Markup :  - - - -
+- - - -
 **From Concept to Reality:** (picture of balsamiq)
 
-Markup :  - - - -
+- - - -
 
 **Challenges faced & solutions used:**
 
@@ -31,11 +31,11 @@ Markup :  - - - -
 
 3. challenge 3
 
-Markup :  - - - -
+- - - -
 
 **Error handling/Troubleshooting:**
 
-Markup :  - - - -
+- - - -
 
 **MVP and Stretch Goals:**
 
