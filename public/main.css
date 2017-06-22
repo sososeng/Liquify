@@ -29,4 +29,6 @@ height: auto;
 width: 250px;
 }
 
-/*LOGIN FORM*/
+.date {
+  font-weight: bold;
+}
