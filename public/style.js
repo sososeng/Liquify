@@ -1,3 +1,21 @@
+$(document).ready(function(){
+
+
+  (function(){
+    var offset = moment().utcOffset();
+    var api_url = '/api/synctime:'+offset;
+       axios.put(api_url)
+          .then(function (response) {
+            console.log(response.data);
+
+           })
+           .catch(function (error) {
+             console.error(error);
+           });
+       })();
+
+
+//circle graph
 var bar = new ProgressBar.Circle(circle, {
   color: '#aaa',
   // This has to be the same size as the maximum width to
@@ -29,3 +47,13 @@ bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
 bar.text.style.fontSize = '2rem';
 
 bar.animate(1.0);  // Number from 0.0 to 1.0s
+
+
+  $('.progressbar-text').click(function(){
+    var api_url = '/api/drinkup';
+    axios.put(api_url)
+    .then(function(response){
+      console.log(response.data);
+    })
+  });
+});

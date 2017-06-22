@@ -7,7 +7,7 @@ body {
 }
 
 #top-margin{
-  margin-top: 4em;
+  margin-top: 3em;
 }
 
 /*NAVAGATION BAR*/
@@ -63,13 +63,15 @@ input {
 }
 
 /*TODAY PAGE*/
-
+.container {
+  margin-bottom: 1em;
+}
 /*circle progress bar*/
 
 #circle {
-  margin: 0 auto;
-  width: 15em;
-  height: 15em;
+  margin: 1.5em auto;
+  width: 22em;
+  height: 22em;
   position: relative;
 }
 
@@ -79,23 +81,22 @@ input {
 
 .data {
   color: white;
-  background-color: 26272c;
+
   font-size: 2.5em;
   text-align: center;
+
 }
 .percent {
   border: 2px solid white;
   padding: 2%;
   margin-bottom: .5em;
+
 }
 .cups {
   border: 2px solid white;
   padding: 2%;
 }
 
-.container {
-  margin-bottom: 1em;
-}
 
 h1.today {
   color : white;
@@ -111,21 +112,4 @@ span.date {
 
 .progressbar-text{
   font-size: 5em !important;
-}
-
-/*MEDIA QUERY*/
-
-@media only screen and (min-width: 768px){
-  /*Landing Page*/
-
-
-  /*Login Page*/
-input {
-  width: 10em;
-}
-
-  /*Today Page*/
-
-
-  /*Status Page*/
 }

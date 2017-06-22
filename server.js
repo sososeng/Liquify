@@ -178,7 +178,11 @@ app.get('/login', function(req, res) {
     // render the page and pass in any flash data if it exists
     res.render('login.ejs', { message: req.flash('loginMessage') });
 });
+app.get('/home', function(req, res) {
 
+    // render the page and pass in any flash data if it exists
+    res.render('home.ejs');
+});
 app.get('/signup', function(req, res) {
 
     // render the page and pass in any flash data if it exists
