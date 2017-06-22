@@ -9,24 +9,30 @@
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
-            <h1 class="text-center"> Log Your Water </h1>
+            <h1 class="text-center"> Track your <br /> water intake </h1>
             <div class="text-center">
-              <span class="glyphicon glyphicon-plus plus-button"></span>
 
               <!-- //progress circle  -->
-              <section class="progress">
-                <div class="progress-radial progress-45 setsize">
-                  <div class="overlay setsize">
-                    <p></p>
+              <div id="circle"></div>
+
+              <span class="glyphicon glyphicon-plus plus-button"></span>
+              <section class="data">
+                  <div class="row">
+                    <div class=" percent col-xs-6" style:"color:white">
+                      100%
+                    </div>
+                    <div class="cups col-xs-6">
+                      8 CUPS
+                    </div>
                   </div>
-                </div>
               </section>
 
+              </div>
+             </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
     <% include templates/footer.ejs%>
     <script>
 
