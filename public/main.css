@@ -1,17 +1,19 @@
 /* Insert CSS Here */
 
 body {
-  background-color: #35353f;
 
+  background-color: #35353f;
 }
 .navbar-custom{
   height: 50px;
   color: white;
+
   background-color: transparent;
 }
 
 label, h1{
   color : white;
+
 }
 
 input {
@@ -19,19 +21,20 @@ input {
 }
 
 .brand{
-  color: white;
+  color: #2196F3;
   margin-top: 8px;
   margin-left: 10px;
   font-size: 25px;
 }
 a{
-  color:white;
+  color:#2196F3;
   font-size:20px;
   margin-right: 10px;
 }
 #today{
   margin-top: 5em;
 }
+
 
 #logo{
   max-width: 15em;
