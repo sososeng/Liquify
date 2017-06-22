@@ -1,6 +1,11 @@
 /* Insert CSS Here */
 
 body {
+<<<<<<< HEAD
+  background-color: #35353f;
+  font-family: 'Oswald', sans-serif;
+=======
+>>>>>>> master
 
   background-color: #35353f;
 }
@@ -9,11 +14,22 @@ body {
   color: white;
 
   background-color: transparent;
+  /*border-bottom-color: #5eaaaf;*/
+
 }
 
 label, h1{
   color : white;
+<<<<<<< HEAD
+  text-transform: uppercase;
+  letter-spacing: .3em;
+}
 
+h1 {
+  line-height: 150%;
+=======
+
+>>>>>>> master
 }
 
 input {
@@ -25,12 +41,16 @@ input {
   margin-top: 8px;
   margin-left: 10px;
   font-size: 25px;
+  text-transform: uppercase;
+
 }
 a{
   color:#2196F3;
   font-size:20px;
   margin-right: 10px;
+    text-transform: uppercase;
 }
+
 #today{
   margin-top: 5em;
 }
@@ -38,4 +58,30 @@ a{
 
 #logo{
   max-width: 15em;
+}
+
+/*circle progress bar*/
+
+#circle {
+  margin: 20px;
+  width: 300px;
+  height: 300px;
+  position: relative;
+}
+
+.plus-button {
+  color: white;
+}
+
+.data {
+  ;
+  color: white;
+  background-color: 26272c;
+  font-size: 5em;
+}
+.percent {
+  border: 2px solid white;
+}
+.cups {
+  border: 1px solid white
 }

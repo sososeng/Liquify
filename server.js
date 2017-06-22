@@ -165,6 +165,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(express.static('public'));
+app.use(express.static('node_modules/progressbar.js/dist'));
 
 app.get('/', function(req, res) {
       res.render('login.ejs'); // load the index.ejs file
