@@ -4,32 +4,30 @@
     <% include templates/head.ejs%>
 </head>
   <body>
-    
-    <!-- THIRST KEEPER LOGO -->
-    <div class="container" id="today">
+
+    <!-- LIQUIFY LOGO -->
+    <div class="container" id="top-margin">
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <div class="text-center">
+            <img id="logo" src="images/blue_logo.png" class="img-fluid" alt="Responsive image">
+            <h1 class="login">Liquify</h1>
 
-      <img id="logo" src="images/blue_logo.png" class="img-fluid" alt="Responsive image">
-      <h1>Liquify</h1>
-
-
-      <!-- LOGIN FORM -->
-      <form action="/login" method="post">
-        <div>
-          <label>Email</label>
-          <br />
-          <input type="text"  name="email">
-        </div>
-        <div>
-          <label>Password</label>
-          <br />
-          <input type="password" name="password">
-        </div>
-        <button class="btn btn-secondary" type="submit">Login</button>
-      </form>
-            </div>
+            <!-- LOGIN FORM -->
+            <form action="/login" method="post">
+              <div>
+                <label>Email</label>
+                <br />
+                <input type="text"  name="email">
+              </div>
+              <div>
+                <label>Password</label>
+                <br />
+                <input type="password" name="password">
+              </div>
+              <button class="btn btn-secondary" type="submit">Login</button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

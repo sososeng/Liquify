@@ -1,71 +1,75 @@
-/* Insert CSS Here */
+/*GENERAL*/
 
 body {
-<<<<<<< HEAD
   background-color: #35353f;
   font-family: 'Oswald', sans-serif;
-=======
->>>>>>> master
-
   background-color: #35353f;
 }
+
+#top-margin{
+  margin-top: 4em;
+}
+
+/*NAVAGATION BAR*/
 .navbar-custom{
   height: 50px;
   color: white;
-
   background-color: transparent;
-  /*border-bottom-color: #5eaaaf;*/
-
 }
 
-label, h1{
+.brand{
+  color: white;
+  margin-top: 8px;
+  margin-left: 10px;
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+a{
+  color:white;
+  font-size:20px;
+  margin-right: 10px;
+  text-transform: uppercase;
+}
+
+/*LOGIN/SIGNUP FORM*/
+#logo{
+  max-width: 15em;
+}
+
+h1.login, h1.signup {
   color : white;
-<<<<<<< HEAD
   text-transform: uppercase;
   letter-spacing: .3em;
+  font-size: 2.5em;
+  line-height: 125%;
 }
 
-h1 {
-  line-height: 150%;
-=======
-
->>>>>>> master
+label{
+  color : white;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: 1em;
+  line-height: 125%;
+  text-align: left;
 }
 
 input {
   margin-bottom: 1em;
 }
 
-.brand{
-  color: #2196F3;
-  margin-top: 8px;
-  margin-left: 10px;
-  font-size: 25px;
+.btn {
   text-transform: uppercase;
-
-}
-a{
-  color:#2196F3;
-  font-size:20px;
-  margin-right: 10px;
-    text-transform: uppercase;
 }
 
-#today{
-  margin-top: 5em;
-}
-
-
-#logo{
-  max-width: 15em;
-}
+/*TODAY PAGE*/
 
 /*circle progress bar*/
 
 #circle {
-  margin: 20px;
-  width: 300px;
-  height: 300px;
+  margin: 0 auto;
+  width: 15em;
+  height: 15em;
   position: relative;
 }
 
@@ -74,14 +78,54 @@ a{
 }
 
 .data {
-  ;
   color: white;
   background-color: 26272c;
-  font-size: 5em;
+  font-size: 2.5em;
+  text-align: center;
 }
 .percent {
   border: 2px solid white;
+  padding: 2%;
+  margin-bottom: .5em;
 }
 .cups {
-  border: 1px solid white
+  border: 2px solid white;
+  padding: 2%;
+}
+
+.container {
+  margin-bottom: 1em;
+}
+
+h1.today {
+  color : white;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: 2.5em;
+  line-height: 125%;
+}
+span.date {
+  color: #5ce2ed;
+  font-size: .7em;
+}
+
+.progressbar-text{
+  font-size: 5em !important;
+}
+
+/*MEDIA QUERY*/
+
+@media only screen and (min-width: 768px){
+  /*Landing Page*/
+
+
+  /*Login Page*/
+input {
+  width: 10em;
+}
+
+  /*Today Page*/
+
+
+  /*Status Page*/
 }

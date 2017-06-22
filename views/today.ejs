@@ -5,40 +5,43 @@
 </head>
   <body>
   <% include templates/header.ejs%>
-    <div id="today">
+    <div id="top-margin">
+
+      <!-- HEADER -->
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-            <h1 class="text-center"> Track your <br /> water intake </h1>
-            <div class="text-center">
-<<<<<<< HEAD
-=======
-
-
-              <span class="glyphicon glyphicon-plus plus-button"></span>
->>>>>>> master
-
-              <!-- //progress circle  -->
-              <div id="circle"></div>
-
-              <span class="glyphicon glyphicon-plus plus-button"></span>
-              <section class="data">
-                  <div class="row">
-                    <div class=" percent col-xs-6" style:"color:white">
-                      100%
-                    </div>
-                    <div class="cups col-xs-6">
-                      8 CUPS
-                    </div>
-                  </div>
-              </section>
-
-              </div>
-             </div>
-            </div>
+          <div class="col-md-12">
+            <h1 class=" today text-center"> Track your
+              <br /> water intake
+             <br /> <span class="date">July 4, 2017 </span> </h1>
           </div>
         </div>
       </div>
+          <!-- //PROGRESS CIRCLE -->
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div id="circle">
+                </div>
+              </div>
+            </div>
+                <!-- <span class="glyphicon glyphicon-plus plus-button"></span> -->
+          </div>
+        </div>
+
+          <!-- PERCENTAGE/CUPS BOXES -->
+          <section class=" container data">
+              <div class="row">
+                <div class=" percent col-md-6" style:"color:white">
+                  100%
+                </div>
+                <div class="cups col-md-6">
+                  8 CUPS
+                </div>
+              </div>
+          </section>
+
+    </div>
     <% include templates/footer.ejs%>
     <script>
 
