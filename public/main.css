@@ -1,13 +1,23 @@
 /* Insert CSS Here */
 
 body {
-  background-color: #ECECEC;
+  background-color: #35353f;
+
 }
 .navbar-custom{
   height: 50px;
   color: white;
-  background-color: black;
+  background-color: transparent;
 }
+
+label, h1{
+  color : white;
+}
+
+input {
+  margin-bottom: 1em;
+}
+
 .brand{
   color: white;
   margin-top: 8px;
@@ -22,12 +32,7 @@ a{
 #today{
   margin-top: 5em;
 }
-/*LOGIN LOGO*/
-#logo {
-height: auto;
-width: 250px;
-}
 
-.date {
-  font-weight: bold;
+#logo{
+  max-width: 15em;
 }
