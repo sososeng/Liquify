@@ -47,6 +47,15 @@ a:focus, a:hover{
     text-decoration: none;
 }
 
+.video-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background: url(overlays/02.png) center center;
+  opacity: .2;
+}
+
 /*HOME PAGE*/
 h1.home {
  color: white;
