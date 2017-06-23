@@ -149,3 +149,10 @@ span.date {
   color:white;
   text-align: center;
 }
+
+label.error {
+    color:#D46A6A;
+    display: block;
+    width: 100%;
+    text-align: center;
+}

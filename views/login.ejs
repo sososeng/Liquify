@@ -14,7 +14,7 @@
             <h1 class="login">Liquify</h1>
 
             <!-- LOGIN FORM -->
-            <form action="/login" method="post">
+            <form action="/login" method="post" id= "loginform">
               <div>
                 <label>Email</label>
                 <br />
@@ -34,5 +34,7 @@
 
     </div><!-- /.container -->
     <% include templates/footer.ejs%>
+    <script src="jquery.validate.min.js"></script>
+    <script src="login-validation.js"></script>
   </body>
 </html>
