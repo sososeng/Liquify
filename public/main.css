@@ -16,10 +16,15 @@ body {
   color: white;
   background-color: transparent;
   text-decoration: none;
+  border: none;
 }
 .nav>li>a:focus, .nav>li>a:hover {
   text-decoration: none;
   background-color: transparent;
+}
+
+#navbar-collapse {
+  box-shadow: none;
 }
 
 .brand{
@@ -120,6 +125,14 @@ h1.today {
   letter-spacing: .3em;
   font-size: 2.5em;
   line-height: 125%;
+}
+h1.status {
+  color : white;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+  font-size: 2.5em;
+  line-height: 125%;
+  margin-bottom:1em;
 }
 span.date {
   color: #5ce2ed;
