@@ -281,38 +281,31 @@ app.put('/api/synctime:offset', isLoggedIn , function(req, res) {
 
 
 app.get('/status', isLoggedIn ,function(req, res){
-
-    var reData={};
     var myq;
     let today = moment().utcOffset(req.user.local.timeoffset).format("YYYY-MM-DD");
+
+    var queries = [];
     for(let i = 0;i<7 ;i++){
-
       let nowDate  = moment(today).subtract(i,'days').format("YYYY-MM-DD");
-
-      myq = Data.findOne({ '_creator' :  req.user.local._id, 'date': nowDate}, function(err, data) {
-          // if there are any errors, return the error before anything else
-          if (err)
-              return done(err);
-
-          // if no data is found, return the message
-          if (!data){
-            let theDate =moment(nowDate).format("MM-DD-YYYY");
-            reData[i]= [theDate,7];
-          }else{
-
-            let theDate =moment(nowDate).format("MM-DD-YYYY");
-            reData[i]= [theDate, data.value];
-            //console.log(reData);
-          }
-      })
-
+      myq = Data.findOne({ '_creator' :  req.user.local._id, 'date': nowDate});
+      queries.push(myq);
     }
 
-    myq.then(function(){
+    Promise.all(queries).then(function(results){
+        console.log(results);
+
+        var reData = {};
+        results.forEach(function (data, i, array) {
+          if (data) {
+            reData[i]= [data.date, data.value];
+          } else {
+            let nowDate  = moment(today).subtract(i,'days').format("YYYY-MM-DD");
+            reData[i]= [nowDate,7];
+          }
+        });
 
         console.log(reData);
         res.render('status.ejs', {data:reData});
-
     });
 
 

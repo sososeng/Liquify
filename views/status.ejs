@@ -21,9 +21,11 @@
     <% include templates/footer.ejs%>
 
     <script>
+    var d;
     $(document).ready(function(){
 
       var initData = JSON.parse('<%-JSON.stringify(data)%>');
+      d = initData;
       var xdata = [initData[6][0],initData[5][0],initData[4][0],initData[3][0],initData[2][0],initData[1][0],initData[0][0]];
       var ydata = [initData[6][1],initData[5][1],initData[4][1],initData[3][1],initData[2][1],initData[1][1],initData[0][1]];
       var ctx = document.getElementById('myChart').getContext('2d');
