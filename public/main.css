@@ -88,20 +88,17 @@ input {
 
 .data {
   color: white;
-
   font-size: 2.5em;
-  text-align: center;
 
 }
 .percent {
   border: 2px solid white;
-  padding: 2%;
   margin-bottom: .5em;
 
 }
 .cups {
   border: 2px solid white;
-  padding: 2%;
+
 }
 
 
@@ -119,4 +116,36 @@ span.date {
 
 .progressbar-text{
   font-size: 5em !important;
+}
+
+
+
+.cupscount ul.flip.play:not(:last-child) {
+    display: none;
+}
+
+
+.flip-clock-wrapper:before, .flip-clock-wrapper:after{
+  content: none;
+}
+
+.cupspercent{
+  width: 40%;
+}
+
+.cupscount{
+  width: 13%;
+}
+
+.test{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartcontainer{
+  width: 80%;
+  margin: 10em auto;
+  color:white;
+  text-align: center;
 }

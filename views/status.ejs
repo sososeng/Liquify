@@ -3,48 +3,7 @@
   <head>
     <title>status</title>
     <% include templates/head.ejs%>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script>
-      window.onload = function () {
-        var dataPoints = [];
-
-    		  var chart = new CanvasJS.Chart("chartContainer",{
-    			  title:{
-    				text: "Weekly Report"
-    			  },
-            animationEnabled: true,
-    			  axisY: {
-    				title: "Cups Drank",
-            includeZero: false,
-    				suffix: "cups"
-    			  },
-    			  data: [{
-      				toolTipContent: "{y} units",
-      				type: "splineArea",
-      				markerSize: 5,
-      				color: "rgba(54,158,173,.7)",
-      				dataPoints:[
-                { label: <%- data%>[6][0], y: <%- data%>[6][1] },
-                { label: <%- data%>[5][0], y: <%- data%>[5][1] },
-                { label: <%- data%>[4][0], y: <%- data%>[4][1] },
-                { label: <%- data%>[3][0], y: <%- data%>[3][1] },
-                { label: <%- data%>[2][0], y: <%- data%>[2][1] },
-                { label: <%- data%>[1][0], y: <%- data%>[1][1] },
-                { label: <%- data%>[0][0], y: <%- data%>[0][1] },
-
-
-
-
-
-
-              ]
-    			  }]
-        });
-      //}
-      chart.render();
-    }
-</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
   </head>
   <body>
     <% include templates/header.ejs%>
@@ -52,7 +11,58 @@
       <div class="col-md-8 col-md-offset-2">
       </div>
     </div>
-    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <!--<div id="chartContainer" style="height: 300px; width: 100%;"></div>-->
+    <div class="chartcontainer">
+      <h2>Weekly Report</h2>
+      <div>
+        <canvas id="myChart"></canvas>
+      </div>
+  </div>
     <% include templates/footer.ejs%>
+
+    <script>
+    $(document).ready(function(){
+
+      var initData = JSON.parse('<%-JSON.stringify(data)%>');
+      var xdata = [initData[6][0],initData[5][0],initData[4][0],initData[3][0],initData[2][0],initData[1][0],initData[0][0]];
+      var ydata = [initData[6][1],initData[5][1],initData[4][1],initData[3][1],initData[2][1],initData[1][1],initData[0][1]];
+      var ctx = document.getElementById('myChart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: xdata,
+          //labels: ["1","2","3","4"],
+          datasets: [{
+            label: 'Number of Cup',
+            data: ydata,
+            //data: [1,2,3,4],
+            backgroundColor: "rgba(92,226,237,0.6)"
+          }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    },
+                    gridLines: {
+                      display: false,
+                      color: "white"
+                    }
+                }],
+                xAxes: [{
+                    gridLines: {
+                      display: false,
+                      color: "white"
+                    }
+                }],
+
+            }
+        }
+      });
+
+        Chart.defaults.global.defaultFontColor = 'white';
+    });
+    </script>
   </body>
 </html>

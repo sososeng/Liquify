@@ -13,7 +13,7 @@
           <div class="col-md-12">
             <h1 class=" today text-center"> Track your
               <br /> water intake
-             <br /> <span class="date">July 4, 2017 </span> </h1>
+             <br /> <span class="date datetime"></span> </h1>
           </div>
         </div>
       </div>
@@ -33,17 +33,78 @@
           <section class=" container data">
               <div class="row">
                 <div class=" percent col-md-6">
-                  100%
+                  <div class ="test">
+                      <div class = "cupspercent">
+                      </div>
+                      <span>%</span>
+                  </div>
                 </div>
                 <div class="cups col-md-6">
-                  8 CUPS
-                </div>
+                   <div class = "test">
+                     <div class = "cupscount">
+                     </div>
+                     <span>CUPS</span>
+                   </div>
+                 </div>
               </div>
           </section>
 
     </div>
     <% include templates/footer.ejs%>
     <script>
+      var datetime = null,
+              date = null;
+
+      var update = function () {
+          date = moment(new Date());
+          datetime.html(date.format('dddd, MMMM Do YYYY, h:mm:ss a'));
+      };
+
+      $(document).ready(function(){
+
+        datetime = $('.datetime');
+        update();
+        setInterval(update, 1000);
+
+
+        let thedata = <%= data.value%>
+        let percentdata = 0;
+        if(thedata <= 8){
+          percentdata = Math.floor((thedata/8) * 100);
+        } else{
+          thedata = 8;
+          percentdata = 100;
+        }
+
+        bar.animate(thedata/8);
+
+        var clock = $('.cupscount').FlipClock(thedata, {
+          clockFace: 'Counter',
+
+        });
+        var clockone = $('.cupspercent').FlipClock(percentdata, {
+          clockFace: 'Counter',
+          minimumDigits:3
+
+        });
+
+        $('.progressbar-text').click(function(){
+          var api_url = '/api/drinkup';
+          axios.put(api_url)
+          .then(function(response){
+            if(response.data.value <9){
+              clock.increment();
+
+              let toincrement = (Math.floor((response.data.value/8) * 100) - Math.floor(((response.data.value-1)/8) * 100));
+
+              for(let i =0;i<toincrement;i++){
+                clockone.increment();
+              }
+              bar.animate(response.data.value/8);
+            }
+          })
+        });
+      });
 
     </script>
   </body>

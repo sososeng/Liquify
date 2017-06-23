@@ -238,17 +238,18 @@ app.get('/today', isLoggedIn, function(req, res) {
   app.put('/api/drinkup', isLoggedIn , function(req, res) {
       var today = moment().utcOffset(req.user.local.timeoffset).format("YYYY-MM-DD");
       console.log(today);
-      Data.findOneAndUpdate({ '_creator' :  req.user.local._id, 'date': today},{$inc:{value:1}}, {new:true}, function(err, data) {
+      Data.findOneAndUpdate({ '_creator' :  req.user.local._id, 'date': today, 'value':{$lt : 8}},{$inc:{value:1}}, {new:true}, function(err, data) {
           // if there are any errors, return the error before anything else
           if (err)
               return done(err);
 
           // if no data is found, return the message
           if (!data){
-            res.status(400).send("Sorry can't find that!");
+            res.status(200).send("-.-");
           }else{
-            res.json({value:data.value});
             console.log(data.value);
+            res.json({value:data.value});
+
           }
       });
         // render the page and pass in any flash data if it exists
@@ -301,7 +302,7 @@ app.get('/status', isLoggedIn ,function(req, res){
 
             let theDate =moment(nowDate).format("MM-DD-YYYY");
             reData[i]= [theDate, data.value];
-            console.log(reData);
+            //console.log(reData);
           }
       })
 
@@ -310,7 +311,7 @@ app.get('/status', isLoggedIn ,function(req, res){
     myq.then(function(){
 
         console.log(reData);
-        res.render('status.ejs', {data:JSON.stringify(reData)});
+        res.render('status.ejs', {data:reData});
 
     });
 
