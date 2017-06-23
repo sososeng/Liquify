@@ -299,7 +299,7 @@ app.get('/status', isLoggedIn ,function(req, res){
             reData[i]= [moment(data.date).format("MM-DD-YYYY"), data.value];
           } else {
             let nowDate  = moment(today).subtract(i,'days').format("MM-DD-YYYY");
-            reData[i]= [nowDate,7];
+            reData[i]= [nowDate,0];
           }
         });
 
