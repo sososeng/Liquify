@@ -9,6 +9,12 @@ body {
 #top-margin{
   margin-top: 3em;
 }
+#margin2{
+  margin-top: 10em;
+}
+#margin3{
+  margin-top: 2em;
+}
 
   /*NAVAGATION BAR*/
 .navbar-custom{
@@ -36,7 +42,7 @@ body {
   outline:none;
 }
 
-a{
+nav a{
   color:white;
   font-size:20px;
   margin-right: 10px;
@@ -200,7 +206,7 @@ h1.home{
   letter-spacing: .1em;
   font-size: 2em;
   line-height: 150%;
-  border: 2px solid #333;
+  color: black;
 }
 span.big{
   font-size: 3em;
@@ -211,11 +217,12 @@ span.blue {
   font-weight: bold;
 }
 h2.home {
-  border-bottom: 3px solid #5eaaaf;
+  color: #5eaaaf;
 }
 
 h3 {
   text-indent: 20%;
+  font-style: italic;
 }
 
 .test2 {
@@ -248,13 +255,39 @@ label.error {
     text-align: center;
 }
 
-.btn-sm.round {
+.round {
   border-radius: 24px;
-  width: 30%;
-  font-size: 1em;
+  border: 2px solid black;
+  background-color: transparent;
+  width: 10%;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: black;
+}
+.round:hover, .round:focus{
+
+}
+.roundsign{
+  border-radius: 30px;
+  background-color: #1D4765;
+  color: white;
+  width: 35%;
+  font-size: 2em;
+}
+.roundsign:hover, .roundsign:focus{
+  background-color: white;
+  border: 2px solid #1D4765;
+  color: #1D4765;
 }
 .btn.outline{
   background: transparent;
   padding: 1%;
   border: 2px solid #333;
+}
+to-signup{
+  style:none;
+}
+@media (max-width: 600px){
+  .round{width:35%;}
+  .roundsign{width:45%;}
 }
