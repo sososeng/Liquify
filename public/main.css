@@ -15,6 +15,11 @@ body {
   height: 50px;
   color: white;
   background-color: transparent;
+  text-decoration: none;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: transparent;
 }
 
 .brand{
@@ -23,6 +28,7 @@ body {
   margin-left: 10px;
   font-size: 25px;
   text-transform: uppercase;
+  outline:none;
 }
 
 a{
@@ -32,8 +38,19 @@ a{
   text-transform: uppercase;
 }
 
+a:focus, a:hover{
+  color: white;
+  text-decoration: none;
+}
+.navbar .active > a {
+    color: #5ce2ed;
+    text-decoration: none;
+}
 
-
+/*HOME PAGE*/
+h1.home {
+ color: white;
+}
   /*LOGIN/SIGNUP FORM*/
 #logo{
   max-width: 15em;
@@ -112,6 +129,10 @@ span.date {
 
 .progressbar-text{
   font-size: 5em !important;
+}
+
+.progressbar-text:hover{
+  cursor: pointer;
 }
 
 .cupscount ul.flip.play:not(:last-child) {
