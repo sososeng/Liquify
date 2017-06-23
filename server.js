@@ -156,6 +156,7 @@ app.set('view engine', 'ejs');
 app.use(session({
     secret: 'ssshhhhh',
     // create new redis store.
+    cookie:{_expires : 35000000000},
     store: sessionStore,
     saveUninitialized: true,
     resave: true
@@ -278,8 +279,6 @@ app.put('/api/synctime:offset', isLoggedIn , function(req, res) {
 });
 
 
-
-
 app.get('/status', isLoggedIn ,function(req, res){
     var myq;
     let today = moment().utcOffset(req.user.local.timeoffset).format("YYYY-MM-DD");
@@ -297,9 +296,9 @@ app.get('/status', isLoggedIn ,function(req, res){
         var reData = {};
         results.forEach(function (data, i, array) {
           if (data) {
-            reData[i]= [data.date, data.value];
+            reData[i]= [moment(data.date).format("MM-DD-YYYY"), data.value];
           } else {
-            let nowDate  = moment(today).subtract(i,'days').format("YYYY-MM-DD");
+            let nowDate  = moment(today).subtract(i,'days').format("MM-DD-YYYY");
             reData[i]= [nowDate,7];
           }
         });

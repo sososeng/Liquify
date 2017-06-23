@@ -47,6 +47,7 @@ Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liq
 **Stretch Goals**
 
 * Use react to make application more responsive
+* Make the plus button 3-D to stick out to the user (call to action).
 
 
 **Contribution we'd like to ve added:**
