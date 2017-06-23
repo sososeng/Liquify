@@ -25,6 +25,8 @@
     "morgan": "^1.8.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "progressbar.js": "^1.0.1"
+    "progressbar.js": "^1.0.1",
+    "tubular": "^1.7.5",
+    "vide": "^0.5.1"
   }
 }
