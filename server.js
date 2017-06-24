@@ -317,6 +317,10 @@ app.get('/status', isLoggedIn ,function(req, res){
 
 });
 
+app.get('/test', function(req, res) {
+    res.render('index.ejs');
+});
+
 app.get('/logout', function(req, res) {
   req.session.destroy(function(err){
          if(err){
