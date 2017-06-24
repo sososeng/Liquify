@@ -174,6 +174,12 @@ app.get('/', function(req, res) {
 
 
 
+app.get('/credit', function(req, res) {
+
+    // render the page and pass in any flash data if it exists
+    res.render('credit.ejs');
+});
+
 app.get('/login', function(req, res) {
 
     // render the page and pass in any flash data if it exists
