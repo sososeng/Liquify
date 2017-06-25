@@ -106,13 +106,13 @@
                    // The user is subscribed to notifications
                    // Don't show anything
                    console.log("subscribed");
-                   $('#unsubscribe-link').hide();
-                   $('#subscribe-link').show();
+                   $('#unsubscribe-link').show();
+                   $('#subscribe-link').hide();
 
                } else {
                    console.log("not subscribed");
-                   $('#unsubscribe-link').show();
-                   $('#subscribe-link').hide();
+                   $('#unsubscribe-link').hide();
+                   $('#subscribe-link').show();
 
 
                }
@@ -126,11 +126,11 @@
           console.log(onesig_userid+" subscription state is now:", isSubscribed);
 
           if(isSubscribed){
-            $('#unsubscribe-link').hide();
-            $('#subscribe-link').show();
-          }else{
             $('#unsubscribe-link').show();
             $('#subscribe-link').hide();
+          }else{
+            $('#unsubscribe-link').hide();
+            $('#subscribe-link').show();
           }
 
         });
