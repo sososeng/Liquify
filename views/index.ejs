@@ -35,8 +35,18 @@
 
     <h1>Hello World?</1>
 
-      <a href="#" id="subscribe-link" style="display: none;">Subscribe to Notifications</a>
+   <a href="#" id="subscribe-link" style="display: none;">Subscribe to Notifications</a>
    <script>
+
+
+       var OneSignal = window.OneSignal || [];
+       OneSignal.push(["init", {
+         appId: "27089081-c27e-454a-a2e0-975db773550d",
+         autoRegister: false,
+         notifyButton: {
+           enable: true /* Set to false to hide */
+         }
+       }]);
        function subscribe() {
            OneSignal.push(["registerForPushNotifications"]);
            event.preventDefault();
