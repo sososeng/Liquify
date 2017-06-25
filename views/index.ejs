@@ -36,6 +36,7 @@
     <h1>Hello World?</1>
 
    <a href="#" id="subscribe-link" style="display: none;">Subscribe to Notifications</a>
+   <a href="#" id="unsubscribe-link" style="display: none;">unSubscribe to Notifications</a>
    <script>
 
 
@@ -71,11 +72,11 @@
                    // The user is subscribed to notifications
                    // Don't show anything
                    console.log("subscribed");
-                   document.getElementById("subscribe-link").addEventListener('click', unsubscribe);
+                   document.getElementById("unsubscribe-link").addEventListener('click', unsubscribe);
                } else {
-                 console.log("not subscribed");
+                   console.log("not subscribed");
                    document.getElementById("subscribe-link").addEventListener('click', subscribe);
-                   
+
                }
            });
        });
