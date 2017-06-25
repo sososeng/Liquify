@@ -35,8 +35,8 @@
 
     <h1>Hello World?</1>
 
-   <a href="#" id="subscribe-link" >Remind me to drink water.</a>
-   <a href="#" id="unsubscribe-link" >Don't remind me to drink water.</a>
+   <a href="#" id="subscribe-link" >Subscribe to Notifications</a>
+   <a href="#" id="unsubscribe-link" >unSubscribe to Notifications</a>
    <script>
 
 
@@ -59,11 +59,10 @@
              /* Text below example notification, limited to 50 characters */
              exampleNotificationCaption: 'You can opt-out anytime',
              /* Accept button text, limited to 15 characters */
-             acceptButtonText: "Yes",
+             acceptButtonText: "ALLOW",
              /* Cancel button text, limited to 15 characters */
              cancelButtonText: "NO THANKS"
-         },
-
+         }
        }]);
        function subscribe() {
          OneSignal.push(function() {
@@ -76,8 +75,6 @@
        function unsubscribe(){
          OneSignal.push(["setSubscription", false]);
        }
-
-
 
 
 
@@ -99,7 +96,6 @@
                }
            });
        });
-
    </script>
   </body>
 </html>
