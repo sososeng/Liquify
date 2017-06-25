@@ -4,7 +4,7 @@
     <title>Thirst Keeper</title>
     <link rel="manifest" href="/manifest.json">
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-    <script>
+    <!-- <script>
       var OneSignal = window.OneSignal || [];
       OneSignal.push(["init", {
         appId: "27089081-c27e-454a-a2e0-975db773550d",
@@ -26,11 +26,39 @@
           // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
         });
       });
-    </script>
+    </script> -->
+
+
   </head>
 
   <body>
 
     <h1>Hello World?</1>
+
+      <a href="#" id="subscribe-link" style="display: none;">Subscribe to Notifications</a>
+   <script>
+       function subscribe() {
+           OneSignal.push(["registerForPushNotifications"]);
+           event.preventDefault();
+       }
+
+       var OneSignal = OneSignal || [];
+       /* This example assumes you've already initialized OneSignal */
+       OneSignal.push(function() {
+           // If we're on an unsupported browser, do nothing
+           if (!OneSignal.isPushNotificationsSupported()) {
+               return;
+           }
+           OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+               if (isEnabled) {
+                   // The user is subscribed to notifications
+                   // Don't show anything
+               } else {
+                   document.getElementById("subscribe-link").addEventListener('click', subscribe);
+                   document.getElementById("subscribe-link").style.display = '';
+               }
+           });
+       });
+   </script>
   </body>
 </html>
