@@ -50,8 +50,10 @@
        }]);
        function subscribe() {
          OneSignal.push(function() {
-           OneSignal.registerForPushNotifications();
-         });
+           OneSignal.registerForPushNotifications({
+             modalPrompt: false
+           });
+         })
        }
 
        function unsubscribe(){
