@@ -55,6 +55,10 @@
          });
        }
 
+       function unsubscribe(){
+         OneSignal.push(["setSubscription", false]);
+       }
+
 
 
        OneSignal.push(function() {
@@ -67,10 +71,11 @@
                    // The user is subscribed to notifications
                    // Don't show anything
                    console.log("subscribed");
+                   document.getElementById("subscribe-link").addEventListener('click', unsubscribe);
                } else {
                  console.log("not subscribed");
                    document.getElementById("subscribe-link").addEventListener('click', subscribe);
-                   document.getElementById("subscribe-link").style.display = '';
+                   
                }
            });
        });
