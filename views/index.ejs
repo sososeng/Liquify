@@ -50,9 +50,7 @@
        }]);
        function subscribe() {
          OneSignal.push(function() {
-          OneSignal.registerForPushNotifications({
-            modalPrompt: true
-          });
+           OneSignal.registerForPushNotifications();
          });
        }
 
