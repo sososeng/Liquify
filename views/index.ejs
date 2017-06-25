@@ -38,7 +38,7 @@
    <a href="#" id="subscribe-link" >Subscribe to Notifications</a>
    <a href="#" id="unsubscribe-link" >unSubscribe to Notifications</a>
    <script>
-
+       var onesig_userid = "";
        document.getElementById("subscribe-link").addEventListener('click', subscribe);
        document.getElementById("unsubscribe-link").addEventListener('click', unsubscribe);
        var OneSignal = window.OneSignal || [];
@@ -68,6 +68,19 @@
            disable: true
          }
        }]);
+
+       OneSignal.push(function() {
+        /* These examples are all valid */
+        OneSignal.getUserId(function(userId) {
+          onesig_userid= userId;
+          // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
+        });
+
+        // OneSignal.getUserId().then(function(userId) {
+        //   console.log("OneSignal User ID:", userId);
+        //   // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
+        // });
+      });
        function subscribe() {
          OneSignal.push(function() {
            OneSignal.registerForPushNotifications({
@@ -105,7 +118,8 @@
        OneSignal.push(function() {
         // Occurs when the user's subscription changes to a new value.
         OneSignal.on('subscriptionChange', function (isSubscribed) {
-          console.log("The user's subscription state is now:", isSubscribed);
+          console.log(onesig_userid+" subscription state is now:", isSubscribed);
+
         });
        });
    </script>
