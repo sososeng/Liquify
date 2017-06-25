@@ -59,13 +59,12 @@
              /* Text below example notification, limited to 50 characters */
              exampleNotificationCaption: 'You can opt-out anytime',
              /* Accept button text, limited to 15 characters */
-             acceptButtonText: "ALLOW",
+             acceptButtonText: "Yes",
              /* Cancel button text, limited to 15 characters */
              cancelButtonText: "NO THANKS"
          },
          welcomeNotification: {
-          "title": "Liquify",
-          "message": "We will remind you to stay hydrated.",
+           disable: true
           // "url": "" /* Leave commented for the notification to not open a window on Chrome and Firefox (on Safari, it opens to your webpage) */
       }
        }]);
@@ -80,6 +79,8 @@
        function unsubscribe(){
          OneSignal.push(["setSubscription", false]);
        }
+
+
 
 
 
@@ -99,6 +100,10 @@
                    document.getElementById("subscribe-link").addEventListener('click', subscribe);
 
                }
+           });
+
+           OneSignal.on('subscriptionChange', function (isSubscribed) {
+             console.log("The user's subscription state is now:", isSubscribed);
            });
        });
    </script>
