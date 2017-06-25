@@ -3,6 +3,7 @@
   <head>
     <title>Thirst Keeper</title>
     <link rel="manifest" href="/manifest.json">
+    <script src = "jquery-3.2.0.js" ></script>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
     <!-- <script>
       var OneSignal = window.OneSignal || [];
@@ -35,8 +36,8 @@
 
     <h1>Hello World?</1>
 
-   <a href="#" id="subscribe-link" >Subscribe to Notifications</a>
-   <a href="#" id="unsubscribe-link" >unSubscribe to Notifications</a>
+   <a href="#" id="subscribe-link" >Remind me to drink water.</a>
+   <a href="#" id="unsubscribe-link" >Don't remind me to drink water.</a>
    <script>
        var onesig_userid = "";
        document.getElementById("subscribe-link").addEventListener('click', subscribe);
@@ -105,9 +106,13 @@
                    // The user is subscribed to notifications
                    // Don't show anything
                    console.log("subscribed");
+                   $('#unsubscribe-link').hide();
+                   $('#subscribe-link').show();
 
                } else {
                    console.log("not subscribed");
+                   $('#unsubscribe-link').show();
+                   $('#subscribe-link').hide();
 
 
                }
@@ -119,6 +124,14 @@
         // Occurs when the user's subscription changes to a new value.
         OneSignal.on('subscriptionChange', function (isSubscribed) {
           console.log(onesig_userid+" subscription state is now:", isSubscribed);
+
+          if(isSubscribed){
+            $('#unsubscribe-link').hide();
+            $('#subscribe-link').show();
+          }else{
+            $('#unsubscribe-link').show();
+            $('#subscribe-link').hide();
+          }
 
         });
        });
