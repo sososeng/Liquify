@@ -39,7 +39,8 @@
    <a href="#" id="unsubscribe-link" >unSubscribe to Notifications</a>
    <script>
 
-
+       document.getElementById("subscribe-link").addEventListener('click', subscribe);
+       document.getElementById("unsubscribe-link").addEventListener('click', unsubscribe);
        var OneSignal = window.OneSignal || [];
        OneSignal.push(["init", {
          appId: "27089081-c27e-454a-a2e0-975db773550d",
@@ -91,10 +92,10 @@
                    // The user is subscribed to notifications
                    // Don't show anything
                    console.log("subscribed");
-                   document.getElementById("unsubscribe-link").addEventListener('click', unsubscribe);
+
                } else {
                    console.log("not subscribed");
-                   document.getElementById("subscribe-link").addEventListener('click', subscribe);
+
 
                }
            });
