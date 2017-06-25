@@ -45,13 +45,13 @@
          appId: "27089081-c27e-454a-a2e0-975db773550d",
          autoRegister: false,
          notifyButton: {
-           enable: false /* Set to false to hide */
+           enable: true /* Set to false to hide */
          }
        }]);
        function subscribe() {
          OneSignal.push(function() {
            OneSignal.registerForPushNotifications({
-             modalPrompt: false
+             modalPrompt: true;
            });
          })
        }
