@@ -232,8 +232,8 @@ text-decoration: none;
   justify-content: center;
   align-items: center;
   border: 2px solid white;
+  margin: 3%;
   transform: scale(.7);
-
 }
 
 span {
