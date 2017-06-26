@@ -9,16 +9,20 @@
     <% include templates/header.ejs%>
     <div class="container">
     <div class="row" id="top-margin">
-      <div class="col-md-12">
+
+      <div class="col-md-10 col-md-offset-1">
 
     <!--<div id="chartContainer" style="height: 300px; width: 100%;"></div>-->
     <div class="chartcontainer">
       <h1 class="status text-center">Weekly Report</h1>
       <div>
         <canvas id="myChart"></canvas>
+
       </div>
-  </div>
+    </div>
+
 </div>
+<button class="btn btn-danger" style="position:absolute; right:1em; bottom:1em;">Remind Me to drink water!</button>
     <% include templates/footer.ejs%>
     </div>
   </div>
