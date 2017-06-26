@@ -16,48 +16,67 @@ body {
   margin-top: 2em;
 }
 
-  /*NAVAGATION BAR*/
-.navbar-custom{
-  height: 50px;
-  color: white;
-  background-color: transparent;
-  text-decoration: none;
-  border: none;
-}
-.nav>li>a:focus, .nav>li>a:hover {
-  text-decoration: none;
-  background-color: transparent;
-}
 
-#navbar-collapse {
-  box-shadow: none;
-}
 
-.brand{
-  color: white;
-  margin-top: 8px;
-  margin-left: 10px;
-  font-size: 25px;
+/*HOME PAGE*/
+h1.home{
   text-transform: uppercase;
-  outline:none;
+  letter-spacing: .1em;
+  font-size: 2em;
+  line-height: 150%;
+  color: black;
+}
+span.big{
+  font-size: 3em;
+  font-weight: 900;
+}
+span.blue {
+  color: #5eaaaf;
+  font-weight: bold;
+}
+h2.home {
+  color: #5eaaaf;
 }
 
-nav a{
-  color:white;
-  font-size:20px;
-  margin-right: 10px;
-  text-transform: uppercase;
+h3 {
+  text-indent: 20%;
+  font-style: italic;
 }
 
-a:focus, a:hover{
+.test2 {
+  margin: 0 auto;
+  border: #333;
+}
+
+.round {
+  border-radius: 24px;
+  border: 2px solid black;
+  background-color: transparent;
+  width: 10%;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: black;
+}
+
+.roundsign{
+  border-radius: 30px;
+  background-color: #1D4765;
   color: white;
-  text-decoration: none;
+  width: 35%;
+  font-size: 2em;
 }
-.navbar .active > a {
-    color: #5ce2ed;
-    text-decoration: none;
+.roundsign:hover, .roundsign:focus{
+  background-color: white;
+  border: 2px solid #1D4765;
+  color: #1D4765;
+}
+.btn.outline{
+  background: transparent;
+  padding: 1%;
+  border: 2px solid #333;
 }
 
+/*video-background*/
 
 .video-overlay {
   position: absolute;
@@ -68,13 +87,29 @@ a:focus, a:hover{
   opacity: .2;
 }
 
-/*HOME PAGE*/
-h1.home {
- color: white;
+.fullscreen-bg{
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+overflow: hidden;
+z-index: -100;
+}
+
+.fullscreen-bg__video{
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: fill;
 }
 
 
+
   /*LOGIN/SIGNUP FORM*/
+
 #logo{
   max-width: 15em;
 }
@@ -102,24 +137,84 @@ input {
 
 .btn {
   text-transform: uppercase;
+  margin-bottom: 1em;
 }
 
+a.to-signup{
+  style:none;
+  color: #5ce2ed;
+  text-transform: capitalize;
+}
+
+label.error {
+    color:#D46A6A;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/*NAVAGATION BAR*/
+.navbar-custom{
+height: 50px;
+color: white;
+background-color: transparent;
+text-decoration: none;
+border: none;
+}
+.nav>li>a:focus, .nav>li>a:hover {
+text-decoration: none;
+background-color: transparent;
+}
+
+#navbar-collapse {
+box-shadow: none;
+}
+
+.brand{
+color: white;
+margin-top: 8px;
+margin-left: 10px;
+font-size: 25px;
+text-transform: uppercase;
+outline:none;
+}
+
+nav a{
+color:white;
+font-size:20px;
+margin-right: 10px;
+text-transform: uppercase;
+}
+
+a:focus, a:hover{
+color: white;
+text-decoration: none;
+}
+.navbar .active > a {
+  color: #5ce2ed;
+  text-decoration: none;
+}
+
+
   /*TODAY PAGE*/
+  h1.today {
+    color : white;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    font-size: 2.5em;
+    line-height: 125%;
+  }
+
+  span.date {
+    color: #5ce2ed;
+    font-size: .7em;
+  }
+
 .container {
   margin-bottom: 1em;
 }
 
-.eightoz {
-  color: #5ce2ed;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-  font-size: 2.5em;
-  font-weight: 900;
-
-}
-
   /*circle progress bar*/
-
 #circle {
   margin: 1.5em auto;
   width: 15em;
@@ -140,33 +235,12 @@ input {
 .cups {
   border: 2px solid white;
 }
-
-h1.today {
-  color : white;
-  text-transform: uppercase;
-  letter-spacing: .3em;
-  font-size: 2.5em;
-  line-height: 125%;
-}
-h1.status {
-  color : white;
-  text-transform: uppercase;
-  letter-spacing: .3em;
-  font-size: 2.5em;
-  line-height: 125%;
-  margin-bottom:1em;
-}
-span.date {
+.eightoz {
   color: #5ce2ed;
-  font-size: .7em;
-}
-
-.progressbar-text{
-  font-size: 5em !important;
-}
-
-.progressbar-text:hover{
-  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 2.5em;
+  font-weight: 900;
 }
 
 .cupscount ul.flip.play:not(:last-child) {
@@ -199,95 +273,33 @@ span.date {
 }
 
 
-/*HOME PAGE*/
 
-h1.home{
+/*STATUS PAGE*/
+h1.status {
+  color : white;
   text-transform: uppercase;
-  letter-spacing: .1em;
-  font-size: 2em;
-  line-height: 150%;
-  color: black;
-}
-span.big{
-  font-size: 3em;
-  font-weight: 900;
-}
-span.blue {
-  color: #5eaaaf;
-  font-weight: bold;
-}
-h2.home {
-  color: #5eaaaf;
+  letter-spacing: .3em;
+  font-size: 2.5em;
+  line-height: 125%;
+  margin-bottom:1em;
 }
 
 h3 {
   text-indent: 20%;
   font-style: italic;
   font-weight: bold;
-}
-
-.test2 {
-  margin: 0 auto;
-  border: #333;
-}
-  /*VIDEO BACKGROUND*/
-.fullscreen-bg{
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-  z-index: -100;
-}
-.fullscreen-bg__video{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}
-
-label.error {
-    color:#D46A6A;
-    display: block;
-    width: 100%;
-    text-align: center;
-}
-
-.round {
-  border-radius: 24px;
-  border: 2px solid black;
-  background-color: transparent;
-  width: 10%;
-  font-weight: bold;
-  font-size: 1.2em;
-  color: black;
-}
-.round:hover, .round:focus{
+.progressbar-text{
+  font-size: 5em !important;
 
 }
-.roundsign{
-  border-radius: 30px;
-  background-color: #1D4765;
-  color: white;
-  width: 35%;
-  font-size: 2em;
+
+.progressbar-text:hover{
+  cursor: pointer;
 }
-.roundsign:hover, .roundsign:focus{
-  background-color: white;
-  border: 2px solid #1D4765;
-  color: #1D4765;
-}
-.btn.outline{
-  background: transparent;
-  padding: 1%;
-  border: 2px solid #333;
-}
-to-signup{
-  style:none;
-}
+
+
+
+/*MEDIA QUERY*/
 @media (max-width: 600px){
   .round{width:35%;}
   .roundsign{width:45%;}

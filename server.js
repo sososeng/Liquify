@@ -169,10 +169,16 @@ app.use(express.static('public'));
 app.use(express.static('node_modules/progressbar.js/dist'));
 
 app.get('/', function(req, res) {
-      res.render('login.ejs'); // load the index.ejs file
+      res.render('home.ejs'); // load the index.ejs file
 });
 
 
+
+app.get('/credit', function(req, res) {
+
+    // render the page and pass in any flash data if it exists
+    res.render('credit.ejs');
+});
 
 app.get('/login', function(req, res) {
 
@@ -309,6 +315,10 @@ app.get('/status', isLoggedIn ,function(req, res){
 
 
 
+});
+
+app.get('/test', function(req, res) {
+    res.render('index.ejs');
 });
 
 app.get('/logout', function(req, res) {

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Thirst Keeper</title>
+    <title>Liquify</title>
     <link rel="manifest" href="/manifest.json">
+    <script src = "jquery-3.2.0.js" ></script>
     <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
-    <script>
+    <!-- <script>
       var OneSignal = window.OneSignal || [];
       OneSignal.push(["init", {
         appId: "27089081-c27e-454a-a2e0-975db773550d",
@@ -22,15 +23,118 @@
         });*/
 
         OneSignal.getUserId().then(function(userId) {
-          //console.log("OneSignal User ID:", userId);
+          console.log("OneSignal User ID:", userId);
           // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
         });
       });
-    </script>
+    </script> -->
+
+
   </head>
 
   <body>
 
     <h1>Hello World?</1>
+
+   <a href="#" id="subscribe-link" style="display:none;">Remind me to drink water.</a>
+   <a href="#" id="unsubscribe-link" style="display:none;">Don't remind me to drink water.</a>
+   <script>
+       var onesig_userid = "";
+       document.getElementById("subscribe-link").addEventListener('click', subscribe);
+       document.getElementById("unsubscribe-link").addEventListener('click', unsubscribe);
+       var OneSignal = window.OneSignal || [];
+       OneSignal.push(["init", {
+         appId: "27089081-c27e-454a-a2e0-975db773550d",
+         autoRegister: false,
+         notifyButton: {
+           enable: false/* Set to false to hide */
+         },
+         promptOptions: {
+             /* Change bold title, limited to 30 characters */
+             siteName: 'Liquify',
+             /* Subtitle, limited to 90 characters */
+             actionMessage: "Would you like us to remind you to stay hydrated?",
+             /* Example notification title */
+             exampleNotificationTitle: 'Liquify',
+             /* Example notification message */
+             exampleNotificationMessage: 'Stay thirsty my friend.',
+             /* Text below example notification, limited to 50 characters */
+             exampleNotificationCaption: 'You can opt-out anytime',
+             /* Accept button text, limited to 15 characters */
+             acceptButtonText: "ALLOW",
+             /* Cancel button text, limited to 15 characters */
+             cancelButtonText: "NO THANKS"
+         },
+         welcomeNotification: {
+           disable: true
+         }
+       }]);
+
+       OneSignal.push(function() {
+        /* These examples are all valid */
+        OneSignal.getUserId(function(userId) {
+          onesig_userid= userId;
+          // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
+        });
+
+        // OneSignal.getUserId().then(function(userId) {
+        //   console.log("OneSignal User ID:", userId);
+        //   // (Output) OneSignal User ID: 270a35cd-4dda-4b3f-b04e-41d7463a2316
+        // });
+      });
+       function subscribe() {
+         OneSignal.push(function() {
+           OneSignal.registerForPushNotifications({
+             modalPrompt: true
+           });
+         })
+       }
+
+       function unsubscribe(){
+         OneSignal.push(["setSubscription", false]);
+       }
+
+
+
+       OneSignal.push(function() {
+           // If we're on an unsupported browser, do nothing
+           if (!OneSignal.isPushNotificationsSupported()) {
+               return;
+           }
+           OneSignal.isPushNotificationsEnabled(function(isEnabled) {
+               if (isEnabled) {
+                   // The user is subscribed to notifications
+                   // Don't show anything
+                   console.log("subscribed");
+                   $('#unsubscribe-link').show();
+                   $('#subscribe-link').hide();
+
+               } else {
+                   console.log("not subscribed");
+                   $('#unsubscribe-link').hide();
+                   $('#subscribe-link').show();
+
+
+               }
+           });
+
+       });
+
+       OneSignal.push(function() {
+        // Occurs when the user's subscription changes to a new value.
+        OneSignal.on('subscriptionChange', function (isSubscribed) {
+          console.log(onesig_userid+" subscription state is now:", isSubscribed);
+
+          if(isSubscribed){
+            $('#unsubscribe-link').show();
+            $('#subscribe-link').hide();
+          }else{
+            $('#unsubscribe-link').hide();
+            $('#subscribe-link').show();
+          }
+
+        });
+       });
+   </script>
   </body>
 </html>
