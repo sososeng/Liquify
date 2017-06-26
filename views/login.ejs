@@ -15,6 +15,13 @@
             <h1 class="login">Liquify</h1>
 
             <!-- LOGIN FORM -->
+            <%if (message.length > 0) {%>
+              <div class = "flash">
+                <%=message%>
+              </div>
+
+            <%}%>
+
             <form action="/login" method="post" id= "loginform">
               <div>
                 <label>Email</label>

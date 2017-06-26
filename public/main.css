@@ -280,3 +280,9 @@ h3 {
   .fullscreen-bg{background-image: url("images/bg.png");}
   #logo{width:13em; margin-top:1em;}
 }
+.flash{
+  color:#D46A6A;
+  display: block;
+  width: 100%;
+  text-align: center;
+}

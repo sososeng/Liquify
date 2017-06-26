@@ -13,7 +13,12 @@
 
             <img id="logo" src="images/blue_logo.png" class="img-fluid" alt="Responsive image">
             <h1 class="signup">Liquify</h1>
+            <%if (message.length > 0) {%>
+              <div class = "flash">
+                <%=message%>
+              </div>
 
+            <%}%>
             <form action="/signup" method="post" id = "signupform">
               <div >
                   <label>Email</label>
