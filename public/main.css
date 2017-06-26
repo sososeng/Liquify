@@ -232,12 +232,8 @@ text-decoration: none;
   justify-content: center;
   align-items: center;
   border: 2px solid white;
-<<<<<<< HEAD
   margin: 3%;
-=======
   transform: scale(.7);
-
->>>>>>> d289fb4fce8de75e7c8f541f9070070d896dc485
 }
 
 span {
@@ -257,15 +253,12 @@ h1.status {
   margin-bottom:1em;
 }
 
-<<<<<<< HEAD
-=======
 h3 {
   text-indent: 20%;
   font-style: italic;
   font-weight: 500;
 }
 
->>>>>>> d289fb4fce8de75e7c8f541f9070070d896dc485
 .progressbar-text{
   font-size: 5em !important;
 }
@@ -278,14 +271,6 @@ h3 {
 
 /*MEDIA QUERY*/
 @media (max-width: 600px){
-<<<<<<< HEAD
-  .round{width:35%;}
-  .roundsign{width:45%;}
-}
-
-@media (max-width: 400px) {
-
-=======
   .round{width:25%;}
   .roundsign{width:45%;margin-top:1em;}
   #top-margin{margin-top: 1em;}
@@ -294,5 +279,4 @@ h3 {
   .fullscreen-bg__video{display:none;}
   .fullscreen-bg{background-image: url("images/bg.png");}
   #logo{width:13em; margin-top:1em;}
->>>>>>> d289fb4fce8de75e7c8f541f9070070d896dc485
 }
