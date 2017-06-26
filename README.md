@@ -1,6 +1,6 @@
 # Liquify
 
-**Link to Live Site: ** [Liquify](https://liquify.sokhunseng.com)
+**Link to Live Site:** [Liquify](https://liquify.sokhunseng.com)
 
 **Contributors:**
 Sokhun Seng, Setya Seng, Cristine Shipman
