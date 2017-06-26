@@ -7,46 +7,30 @@
   <body>
   <% include templates/header.ejs%>
     <div id="top-margin">
-
       <!-- HEADER -->
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h1 class=" today text-center"> Track your
-              <br /> water intake
-             <br /> <span class="date datetime"></span> </h1>
-          </div>
-        </div>
-      </div>
-          <!-- //PROGRESS CIRCLE -->
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <div
-                  id="circle">
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- //1 CUP = 8OZ -->
-          <div class="container eightoz">
             <div class="text-center">
-              <div class="row">
-                <div class="col-md-12">
-                  <div>
-                    1 cup = 8 oz
+              <h1 class=" today text-center"> Track your water intake
+                <br /> <span class="date datetime"></span>
+              </h1>
+          <!-- //PROGRESS CIRCLE -->
+              <div id="circle"></div>
+          <!-- //1 CUP = 8OZ -->
+              <div class="container eightoz">
+                <div>
+                  1 cup = 8 oz
                 </div>
               </div>
+
             </div>
           </div>
         </div>
-
-
           <!-- PERCENTAGE/CUPS -->
           <section class=" container data">
               <div class="row">
-                <div class=" percent col-md-6">
+                <div class="percent col-md-6">
                   <div class ="test">
                       <div class = "cupspercent">
                       </div>
@@ -61,9 +45,12 @@
                    </div>
                  </div>
               </div>
-          </section>
+            </section>
 
-    </div>
+          </div> <!-- Text Center End Div -->
+        </div> <!-- COl End Div -->
+      </div> <!-- Row End Div -->
+    </div> <!-- Container End Div -->
     <% include templates/footer.ejs%>
     <script>
       var datetime = null,
