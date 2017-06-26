@@ -18,12 +18,8 @@ Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liq
 
 
 **Features:**
-* Track how many 8 oz. glasses of water user drinks per day
-* User can see a summary history of drinks tracked per week
-
-- - - -
-**From Concept to Reality:** (picture of balsamiq)
-
+* User can track how many 8 oz. glasses of water they drink per day (the goal is to hit 8 glasses).
+* Status page that shows a week of user history
 - - - -
 
 **Challenges faced & solutions used:**
@@ -53,7 +49,8 @@ Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liq
 * Make the plus button 3-D to stick out to the user (call to action).
 
 
+
 **Contribution we'd like to be added**
 
-* Allow users to see their week stats a month back
-*
+* Allow users to see their week stats for more than a week.
+* Allow users to change their daily water intake goal by increasing oz or cups per day.
