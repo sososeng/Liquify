@@ -6,12 +6,12 @@ body {
   background-color: #35353f;
 }
 
-#top-margin{
-  margin-top: 3em;
+#today-margin{
+  margin-top: 5em;
 }
 
-#margin2{
-  margin-top: 10em;
+#status-margin{
+  margin-top: 5em;
 }
 
 #margin3{
@@ -31,6 +31,7 @@ h1.home{
 span.big{
   font-size: 3em;
   font-weight: 900;
+  color: #999999;
 }
 span.blue {
   color: #5eaaaf;
@@ -109,6 +110,7 @@ object-fit: fill;
 
 #logo{
   max-width: 15em;
+  margin-top: 2em;
 }
 
 h1.login, h1.signup {
@@ -224,9 +226,10 @@ text-decoration: none;
   color: #5ce2ed;
   text-transform: uppercase;
   letter-spacing: .1em;
-  font-size: 1.5em;
+  font-size: 1em;
   font-weight: 900;
   text-align: center;
+  font-style: italic;
 }
 
 .data {
@@ -274,8 +277,8 @@ h3 {
 @media (max-width: 600px){
   .round{width:25%;}
   .roundsign{width:45%;margin-top:1em;}
-  #top-margin{margin-top: 3em;}
-  #margin2{margin-top: 5em;}
+  #today-margin{margin-top: 3em;}
+  #status-margin{margin-top: 5em;}
   #margin3{margin-top: 1em;}
   .fullscreen-bg__video{display:none;}
   .fullscreen-bg{background-image: url("images/bg.png");}
