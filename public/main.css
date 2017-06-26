@@ -7,11 +7,13 @@ body {
 }
 
 #top-margin{
-  margin-top: 3em;
+  margin-top: 5em;
 }
+
 #margin2{
   margin-top: 10em;
 }
+
 #margin3{
   margin-top: 2em;
 }
@@ -272,7 +274,7 @@ h3 {
 @media (max-width: 600px){
   .round{width:25%;}
   .roundsign{width:45%;margin-top:1em;}
-  #top-margin{margin-top: 1em;}
+  #top-margin{margin-top: 3em;}
   #margin2{margin-top: 5em;}
   #margin3{margin-top: 1em;}
   .fullscreen-bg__video{display:none;}
