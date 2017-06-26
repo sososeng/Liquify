@@ -201,8 +201,7 @@ text-decoration: none;
     color : white;
     text-transform: uppercase;
     letter-spacing: .3em;
-    font-size: 2.5em;
-    line-height: 125%;
+    font-size: 1.5em;
   }
 
   span.date {
@@ -211,65 +210,39 @@ text-decoration: none;
   }
 
 .container {
-  margin-bottom: 1em;
+  margin-bottom: .5em;
+  justify-content: center;
 }
+
 
   /*circle progress bar*/
 #circle {
-  margin: 1.5em auto;
+  margin: 1em auto;
   width: 15em;
   height: 15em;
   position: relative;
 }
 
-.data {
-  color: white;
-  font-size: 2em;
-}
-
-.percent {
-  border: 2px solid white;
-  margin-bottom: .5em;
-}
-
-.cups {
-  border: 2px solid white;
-}
 .eightoz {
   color: #5ce2ed;
   text-transform: uppercase;
   letter-spacing: .1em;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 900;
-}
-
-.cupscount ul.flip.play:not(:last-child) {
-    display: none;
-}
-
-.flip-clock-wrapper:before, .flip-clock-wrapper:after{
-  content: none;
-}
-
-.cupspercent{
-  width: auto;
-}
-
-.cupscount{
-  width: auto;
-}
-
-.test{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chartcontainer{
-  width: 80%;
-  margin: 10em auto;
-  color:white;
   text-align: center;
+}
+
+.data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+
+}
+
+span {
+  color: white;
+  font-size: 2em;
 }
 
 
@@ -289,9 +262,9 @@ h3 {
   font-style: italic;
   font-weight: bold;
 }
+
 .progressbar-text{
   font-size: 5em !important;
-
 }
 
 .progressbar-text:hover{
@@ -311,3 +284,5 @@ h3 {
   .fullscreen-bg{background-image: url("images/bg.png");}
   #logo{width:13em; margin-top:1em;}
 }
+
+
