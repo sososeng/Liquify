@@ -6,17 +6,20 @@
 Sokhun Seng, Setya Seng, Cristine Shipman
 
 **Technologies, Frameworks and Programming Languages:**
-MongoDb, Express, Node JS, Javascript, jQuery, HTML, CSS
+MongoDb, Express, EJS, Javascript, jQuery, HTML5, CSS3
 
 **Overview of Project:**
 Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liquify allows users to track their water intake on a daily basis to meet this goal. The user is also given a weekly overview of their progress.
+
 > What gets measured, gets managed.
 > - Peter Drucker
+
+![alt text](https:images/home-page.png "Liquify Home Page")
 
 
 **Features:**
 * Track how many 8 oz. glasses of water user drinks per day
-* User can see history of drinks per week
+* User can see a summary history of drinks tracked per week
 
 - - - -
 **From Concept to Reality:** (picture of balsamiq)
@@ -25,7 +28,7 @@ Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liq
 
 **Challenges faced & solutions used:**
 
-1. One of the earliest challenges the team faced was connecting the front-end to the backend. We started off using handlebars until we realized we were not able to use the logic we needed. The problem was, if a user drank 3 cups, left the app, and then came back to log in more cups, how do we make sure the cups stay at 3 and do not refresh. We needed to implement if statements in the html.
+1. One of the earliest challenges the team faced was connecting the front-end to the backend. We started off using handlebars until we realized we were not able to use the logic we needed. The problem was, if a user drank 3 cups, left the app, and then came back to log in more cups, how do we make sure the cups stay at 3 and do not refresh. We needed to implement if statements in the html. To do this we switched to EJS.
 
 2. challenge 2
 
@@ -41,15 +44,16 @@ Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liq
 
 **MVP (Minimum Viable Product)**
 
-* Build an application that allows users to manage their daily water   intake.
-* Store value of glasses per day for a week so that users can see their weekly progress
+* Build an application that allows users to track their daily water intake by 8oz glasses.
+* Store number of glasses per day for a week so that users can see their weekly progress.
 
 **Stretch Goals**
 
-* Use react to make application more responsive
+* Use react to make application more responsive.
 * Make the plus button 3-D to stick out to the user (call to action).
 
 
-**Contribution we'd like to ve added:**
+**Contribution we'd like to be added**
 
-* allow users to see their week stats a month back
+* Allow users to see their week stats a month back
+*
