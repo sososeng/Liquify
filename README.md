@@ -14,7 +14,7 @@ Everyone has heard the advice, "Drink eight 8-ounce glasses of water a day." Liq
 > What gets measured, gets managed.
 > - Peter Drucker
 
-![Liquity](https://github.com/sososeng/Thirst_Keeper/edit/master/images/home-page.png)
+![Liquity](https://github.com/sososeng/Thirst_Keeper/blob/master/public/images/home-page.png)
 
 
 **Features:**
