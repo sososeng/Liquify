@@ -117,7 +117,7 @@ var userSchema = mongoose.Schema({
         _id          : Schema.ObjectId,
         email        : String,
         password     : String,
-        timeoffset    :{ type: String, default: moment().utcOffset()}
+        timeoffset    :{ type: String, default: moment().utcOffset()},
         subscribe    :{ type: Boolean,default: false},
         send         :{ type: Boolean,default: false},
         device       :[]
