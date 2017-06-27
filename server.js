@@ -325,25 +325,31 @@ app.put('/api/adddevice:device/:sub', isLoggedIn , function(req, res) {
 
     var ifsub;
     if(req.params.sub === "yes"){
-      ifsub = true;
+      User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { "local.subscribe": true }} ,{new:true},function(err, data) {
+        if (err)
+            return done(err);
+
+        if (!data){
+            res.status(400).send("Sorry can't find that!");
+        }else{
+            console.log(data);
+            res.json({value:req.params.sub});
+        }
+      });
     }
     if(req.params.sub === "no"){
-      ifsub = false;
+      User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { "local.subscribe": false }} ,{new:true},function(err, data) {
+        if (err)
+            return done(err);
+
+        if (!data){
+            res.status(400).send("Sorry can't find that!");
+        }else{
+            console.log(data);
+            res.json({value:req.params.sub});
+        }
+      });
     }
-
-
-
-    User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { "local.subscribe": ifsub }} ,{new:true},function(err, data) {
-      if (err)
-          return done(err);
-
-      if (!data){
-          res.status(400).send("Sorry can't find that!");
-      }else{
-          console.log(data);
-          res.json({value:req.params.sub});
-      }
-    });
 
 });
 
