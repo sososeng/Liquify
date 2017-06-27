@@ -24,7 +24,24 @@
 
 </div>
 <button class="btn btn-danger subscribe-link" style="position:absolute; right:1em; bottom:1em;">Remind Me to drink water!</button>
-<button class="btn btn-danger unsubscribe-link" style="position:absolute; right:1em; bottom:1em;">Stop Remind Me to drink water!</button>
+<button class="btn btn-danger unsubscribe-link" data-toggle="modal" data-target="#myModal" style="position:absolute; right:1em; bottom:1em;">Stop Remind Me to drink water!</button>
+
+<div class="modal fade " id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Liquify</h4>
+      </div>
+      <div class="modal-body">
+        <p>We will stop bother you.&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
     <% include templates/footer.ejs%>
     </div>
   </div>
