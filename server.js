@@ -325,7 +325,7 @@ app.put('/api/adddevice:device/subscribe:sub', isLoggedIn , function(req, res) {
 
     var ifsub = false;
     console.log(req.params.device);
-    if(req.params.sub === "true"){
+    if(req.params.sub === true){
       ifsub = true;
     }
 
