@@ -43,7 +43,6 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
     <% include templates/footer.ejs%>
-    <script src "axios.min.js"></script>
 </div>
   </div>
     <script>
@@ -200,7 +199,6 @@
 
     $(".subscribe-link").click(function(){
       subscribe();
-      console.log("WTF");
       var api_url = '/api/adddevice:'+onesig_userid+'/subscribe:yes';
          axios.put(api_url)
             .then(function (response) {
