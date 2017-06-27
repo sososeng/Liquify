@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var ObjectId = mongoose.Types.ObjectId;
 mongoose.connect('mongodb://localhost/Test_Thirst_Keeper');
 var db = mongoose.connection;
-
+var axios = require('axios');
 
 
 var moment = require('moment');
@@ -76,7 +76,7 @@ var Data = mongoose.model('Data',dataSchema);
 // });
 
 
-var api_url = '/api/adddevice:'+"testdevice"+'/subscribe:no';
+var api_url = 'http://localhost:8000/api/adddevice:'+"testdevice"+'/subscribe:yes';
    axios.put(api_url)
       .then(function (response) {
         console.log(response.data);

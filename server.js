@@ -330,7 +330,7 @@ app.put('/api/adddevice:device/subscribe:sub', isLoggedIn , function(req, res) {
     }
 
 
-    User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, {$set: { "local.subscribe": ifsub }} ,{new:true},function(err, data) {
+    User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { "local.subscribe": ifsub }} ,{new:true},function(err, data) {
       if (err)
           return done(err);
 
@@ -338,7 +338,7 @@ app.put('/api/adddevice:device/subscribe:sub', isLoggedIn , function(req, res) {
           res.status(400).send("Sorry can't find that!");
       }else{
           console.log(data);
-          res.status(200).send("thanks!");
+          res.json({value:data.value});
       }
     });
 
