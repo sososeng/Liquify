@@ -186,7 +186,7 @@
 
     $(".unsubscribe-link").click(function(){
       unsubscribe();
-      var api_url = '/api/adddevice:'+onesig_userid+'/:no';
+      var api_url = '/api/adddevice'+onesig_userid+'/no';
          axios.put(api_url)
             .then(function (response) {
               console.log(response.data);
@@ -199,7 +199,7 @@
 
     $(".subscribe-link").click(function(){
       subscribe();
-      var api_url = '/api/adddevice:'+onesig_userid+'/:yes';
+      var api_url = '/api/adddevice'+onesig_userid+'/yes';
          axios.put(api_url)
             .then(function (response) {
               console.log(response.data);
