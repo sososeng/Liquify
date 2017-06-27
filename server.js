@@ -325,12 +325,12 @@ app.put('/api/adddevice:device/subscribe:sub', isLoggedIn , function(req, res) {
 
     var ifsub = false;
     console.log(req.params.device);
-    if(req.params.sub === true){
+    if(req.params.sub === "yes"){
       ifsub = true;
     }
 
 
-    User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { 'local.subscribe': req.params.sub }} ,{new:true},function(err, data) {
+    User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { 'local.subscribe': ifsub }} ,{new:true},function(err, data) {
       if (err)
           return done(err);
 
