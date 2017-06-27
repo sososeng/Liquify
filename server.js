@@ -270,7 +270,7 @@ app.get('/today', isLoggedIn, function(req, res) {
 app.put('/api/synctime:offset', isLoggedIn , function(req, res) {
 
     var theoffset = req.params.offset;
-    User.findOneAndUpdate({ 'local._id' :  req.user.local._id},{$set:{timeoffset:theoffset}}, {new: true}, function(err, data) {
+    User.findOneAndUpdate({ 'local._id' :  req.user.local._id},{$set:{'local.timeoffset':theoffset}}, {new: true}, function(err, data) {
         // if there are any errors, return the error before anything else
         if (err)
             return done(err);
