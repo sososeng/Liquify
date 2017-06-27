@@ -323,7 +323,7 @@ app.get('/status', isLoggedIn ,function(req, res){
 
 app.put('/api/adddevice:device/:sub', isLoggedIn , function(req, res) {
 
-    var ifsub = true;
+    var ifsub = false;
     if(req.params.sub === "yes"){
       ifsub = true;
     }
