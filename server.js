@@ -323,13 +323,13 @@ app.get('/status', isLoggedIn ,function(req, res){
 
 app.put('/api/adddevice:device/:sub', isLoggedIn , function(req, res) {
 
-    if(req.params.sub === "yes"){
+  /*  if(req.params.sub === "yes"){
       User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { "local.subscribe": true }} ,{new:true});
     }
     if(req.params.sub === "no"){
       User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { "local.subscribe": false }} ,{new:true});
-    }
-
+    }*/
+  res.json({value:data.value});
 });
 
 
