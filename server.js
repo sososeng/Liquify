@@ -341,7 +341,7 @@ app.put('/api/adddevice:device/:sub', isLoggedIn , function(req, res) {
           res.status(400).send("Sorry can't find that!");
       }else{
           console.log(data);
-          res.json({value:data.value});
+          res.json({value:req.params.sub});
       }
     });
 
