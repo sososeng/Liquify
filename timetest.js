@@ -51,29 +51,40 @@ var Data = mongoose.model('Data',dataSchema);
 
 
 
-var newUser  = new User();
+// var newUser  = new User();
+//
+// // set the user's local credentials
+// newUser.local._id = new ObjectId();
+// newUser.local.email    = "test@gmail.com";
+// newUser.local.password = "test";
+//
+// // save the user
+// newUser.save(function(err) {
+//     if (err)
+//         throw err;
+//     return(newUser);
+// });
+//
+//
+// User.findOne({ 'local.email' : "test@gmail.com"}, function(err, data) {
+//   console.log(data);
+// });
+//
+// User.findOneAndUpdate({ 'local.email' : "test@gmail.com"},{$addToSet: {"local.device": "22"}, $set: { 'local.subscribe': true }} ,{new:true},function(err, data) {
+//         console.log(err);
+//         console.log(data);
+// });
 
-// set the user's local credentials
-newUser.local._id = new ObjectId();
-newUser.local.email    = "test@gmail.com";
-newUser.local.password = "test";
 
-// save the user
-newUser.save(function(err) {
-    if (err)
-        throw err;
-    return(newUser);
-});
+var api_url = '/api/adddevice:'+"testdevice"+'/subscribe:no';
+   axios.put(api_url)
+      .then(function (response) {
+        console.log(response.data);
 
-
-User.findOne({ 'local.email' : "test@gmail.com"}, function(err, data) {
-  console.log(data);
-});
-
-User.findOneAndUpdate({ 'local.email' : "test@gmail.com"},{$addToSet: {"local.device": "22"}, $set: { 'local.subscribe': true }} ,{new:true},function(err, data) {
-        console.log(err);
-        console.log(data);
-});
+       })
+       .catch(function (error) {
+         console.error(error);
+       });
 
 db.close();
 
