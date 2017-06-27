@@ -200,6 +200,7 @@
 
     $(".subscribe-link").click(function(){
       subscribe();
+      console.log("WTF");
       var api_url = '/api/adddevice:'+onesig_userid+'/subscribe:yes';
          axios.put(api_url)
             .then(function (response) {
