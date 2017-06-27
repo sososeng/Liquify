@@ -186,7 +186,7 @@
 
     $(".unsubscribe-link").click(function(){
       unsubscribe();
-      var api_url = '/api/adddevice:'+onesig_userid+'/subscribe:no';
+      var api_url = '/api/adddevice:'+onesig_userid+'/:no';
          axios.put(api_url)
             .then(function (response) {
               console.log(response.data);
