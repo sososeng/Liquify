@@ -329,10 +329,10 @@ app.put('/api/adddevice:device/:sub', isLoggedIn , function(req, res) {
     if(req.params.sub === "no"){
       User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { "local.subscribe": false }} ,{new:true});
     }*/
-  if(req.params.sub === "yes"){
+  if(req.params.sub == "yes"){
     res.json({value:1});
   }
-  if(req.params.sub === "no"){
+  if(req.params.sub == "no"){
     res.json({value:0});
   }
 });
