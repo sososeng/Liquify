@@ -320,6 +320,32 @@ app.get('/status', isLoggedIn ,function(req, res){
 
 });
 
+
+app.put('/api/adddevice:device/subscribe:sub', isLoggedIn , function(req, res) {
+
+    var ifsub = false;
+    console.log(req.params.device);
+    if(req.params.sub === "true"){
+      ifsub = true;
+    }
+
+
+    User.findOneAndUpdate({ 'local._id' : req.user.local._id},{$addToSet: {"local.device": req.params.device}, $set: { 'local.subscribe': ifsub }} ,{new:true},function(err, data) {
+      if (err)
+          return done(err);
+
+      if (!data){
+          res.status(400).send("Sorry can't find that!");
+      }else{
+          console.log(data);
+          res.status(200).send("thanks!");
+      }
+    });
+
+});
+
+
+
 app.get('/test', function(req, res) {
     res.render('index.ejs');
 });

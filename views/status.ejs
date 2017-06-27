@@ -186,9 +186,28 @@
 
     $(".unsubscribe-link").click(function(){
       unsubscribe();
+      var api_url = '/api/adddevice:'+onesig_userid+'/subscribe:false';
+         axios.put(api_url)
+            .then(function (response) {
+              console.log(response.data);
+
+             })
+             .catch(function (error) {
+               console.error(error);
+             });
     });
+
     $(".subscribe-link").click(function(){
       subscribe();
+      var api_url = '/api/adddevice:'+onesig_userid+'/subscribe:true';
+         axios.put(api_url)
+            .then(function (response) {
+              console.log(response.data);
+
+             })
+             .catch(function (error) {
+               console.error(error);
+             });
     })
 
     OneSignal.push(function() {
