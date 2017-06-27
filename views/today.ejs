@@ -55,7 +55,7 @@
 
         (function(){
           var offset = moment().utcOffset();
-          console.log(Offset);
+          console.log(offset);
           var api_url = '/api/synctime:'+offset;
              axios.put(api_url)
                 .then(function (response) {
